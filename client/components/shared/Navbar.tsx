@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import MobileNav from './MobileNav'
-import { NavService } from './NavServices'
+import Link from "next/link";
+import Image from "next/image";
+import MobileNav from "./MobileNav";
+import { NavService } from "./NavServices";
 
 const Navbar = () => {
   return (
@@ -17,24 +17,29 @@ const Navbar = () => {
             height={28}
           />
           {/* Church Name */}
-          <h1 className="text-xl text-white font-extrabold ml-4">St.Antony's Jacobite Syrian Cathedral</h1>
+          <h1 className="text-xl text-white font-extrabold ml-4">
+            St.Antony's Jacobite Syrian Cathedral
+          </h1>
         </div>
         {/* Navigation Links */}
         <ul className="hidden md:flex text-white font-extrabold space-x-8">
-          <li className='bg-none mt-1'>
-          <Link href="/about">About</Link>
+          <li className="bg-none mt-1">
+            <Link href="#aboutUs">About</Link>
+            {/* <a href="#aboutUs">About</a> */}
           </li>
           <li>
-          <NavService />
-
+            <NavService />
+          </li>
+          <li className="dropdown mt-1 hover:text-gray-400">
+            <Link href="/events">Events</Link>
           </li>
           <li className="dropdown mt-1 hover:text-gray-400">
             <Link href="/about">Relics</Link>
           </li>
-          <li className='mt-1'>
+          <li className="mt-1">
             <Link href="/gallery">Gallery</Link>
           </li>
-          <li className='mt-1'>
+          <li className="mt-1">
             <Link href="/contacts">Contacts</Link>
           </li>
         </ul>
@@ -44,7 +49,7 @@ const Navbar = () => {
         </button>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -32,6 +32,9 @@ const MobileNav = () => {
                 <Link href="/about">About</Link>
               </li>
               <li>
+                <Link href="/events">Events</Link>
+              </li>
+              <li>
                 <Link href="/relics">Relics</Link>
               </li>
               <li className="dropdown hover:text-gray-400">

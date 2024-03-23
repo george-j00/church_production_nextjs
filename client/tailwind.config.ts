@@ -19,8 +19,10 @@ const config = {
     },
     extend: {
       backgroundImage: {
+        'dotted-pattern': "url('/assets/dotted-pattern.png')",
         'landing-page': "url('/assets/image8.jpg')", 
-        'patternBg': "url('/assets/image5.jpg')", 
+        'image-pattern': "url('/assets/image1.jpg')", 
+        'tiles-pattern': "url('/assets/bgPattern3.jpg')", 
       },
       colors: {
         border: "hsl(var(--border))",
@@ -29,6 +31,7 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
+          50: ' #F6F8FD',
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
