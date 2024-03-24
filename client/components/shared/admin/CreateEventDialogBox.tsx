@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { createEvent } from "@/lib/actions/admin.actions";
 import { useState } from "react";
 
 interface CreateEventFormValues {
@@ -36,10 +37,12 @@ export function CreateEventDialogBox() {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async(event: React.FormEvent) => {
     event.preventDefault();
     // Handle form submission here, for example:
     console.log("Create Event Form submitted:", formValues);
+    const res = await createEvent(formValues);
+    console.log('event created successfully');
   };
 
   return (
