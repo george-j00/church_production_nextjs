@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
 interface CreateEventFormValues {
@@ -19,6 +20,7 @@ interface CreateEventFormValues {
   eventLocation: string;
   eventTheme: string;
   eventTime: string;
+  eventDescription: string;
 }
 
 export function CreateEventDialogBox() {
@@ -27,9 +29,10 @@ export function CreateEventDialogBox() {
     eventLocation: "",
     eventTheme: "",
     eventTime: "",
+    eventDescription: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
@@ -98,6 +101,18 @@ export function CreateEventDialogBox() {
                 type="text"
                 name="eventTheme"
                 value={formValues.eventTheme}
+                onChange={handleChange}
+                className="col-span-3"
+              />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="eventDescription" className="text-right">
+                Event Description
+              </Label>
+              <Textarea
+                id="eventDescription"
+                name="eventDescription"
+                value={formValues.eventDescription}
                 onChange={handleChange}
                 className="col-span-3"
               />

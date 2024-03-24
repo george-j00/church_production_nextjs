@@ -250,6 +250,8 @@ export function EventManagement() {
               })}
           </DropdownMenuContent>
         </DropdownMenu>
+
+        {/* create event dialog box  */}
        <CreateEventDialogBox />
       </div>
       <div className="rounded-md border">
