@@ -3,5 +3,5 @@ export type EventParams = {
     eventLocation: string;
     eventTheme: string;
     eventTime: string;
-    eventDescription: string;
+    eventDescription?: string;
 }

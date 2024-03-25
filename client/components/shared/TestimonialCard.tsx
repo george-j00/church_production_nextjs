@@ -5,7 +5,7 @@ import { UserAvatar } from "./Avatar";
 const TestimonialCard = ({ testimonial }: any) => {
   return (
     <>
-      <Card className="bg-tiles-pattern  bg-contain  flex flex-col items-center justify-center shadow-lg rounded-lg overflow-hidden p-8 h-full">
+      <Card className="bg-dotted-pattern bg-cover bg-primary-50  flex flex-col items-center justify-center shadow-lg rounded-lg overflow-hidden p-8 h-full">
         <div className="flex mt-10">
           <UserAvatar />
         </div>
