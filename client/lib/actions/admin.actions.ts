@@ -31,3 +31,16 @@ export const deleteEvent = async (eventId: string) => {
     }
   }
 };
+export const fetchAllPrayerRequests = async () => {
+  try {
+   const res =  await axios.get(`${baseUrl}/prayer-requests/getAll`);
+    return res?.data?.prayerRequests
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};

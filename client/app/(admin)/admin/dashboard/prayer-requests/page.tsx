@@ -1,9 +1,10 @@
+import { PrayerRequestManagement } from '@/components/shared/admin/PrayerRequests'
 import React from 'react'
 
 const page = () => {
   return (
    <>
-    <h1>Prayer requests </h1>
+   <PrayerRequestManagement />
    </>
   )
 }
