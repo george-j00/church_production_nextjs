@@ -5,7 +5,7 @@ const page = () => {
     <>
       <div className="wrapper flex flex-col mt-14 text-justify">
         <h1 className="text-3xl text-center font-bold">
-          Church's Brief <span className="text-indigo-600">History</span>{" "}
+          Church&apos;s Brief <span className="text-indigo-600">History</span>{" "}
         </h1>
         <div className="wrapper flex flex-col gap-10">
 
