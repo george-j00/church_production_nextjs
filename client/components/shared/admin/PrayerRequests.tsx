@@ -135,8 +135,8 @@ export type PrayerRequestType = {
                   <MoreHorizontal className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                hi
+              <DropdownMenuContent className="text-green-500">
+              <DeleteEventDialogBox eventId={prayerRequest?._id}/>
               </DropdownMenuContent>
             </DropdownMenu>
           );
@@ -227,8 +227,6 @@ export type PrayerRequestType = {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        {/* create event dialog box  */}
-        <CreateEventDialogBox />
       </div>
       <div className="rounded-md border">
         <Table>

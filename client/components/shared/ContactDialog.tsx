@@ -16,7 +16,7 @@ const ContactDialog = () => {
 
   const router = useRouter(); 
   const handleCall = () => {
-    router.push(`tel:${+918111942818}`)
+    router.push(`tel:${+918762375263}`)
   }
 
   return (

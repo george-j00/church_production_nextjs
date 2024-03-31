@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +13,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import { createEvent } from "@/lib/actions/admin.actions";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface CreateEventFormValues {
@@ -25,6 +27,9 @@ interface CreateEventFormValues {
 }
 
 export function CreateEventDialogBox() {
+  const { toast } = useToast();
+  const router = useRouter();
+  const [error, setError] = useState(false);
   const [formValues, setFormValues] = useState<CreateEventFormValues>({
     eventDate: "",
     eventLocation: "",
@@ -33,22 +38,65 @@ export function CreateEventDialogBox() {
     eventDescription: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = async(event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    // Handle form submission here, for example:
-    console.log("Create Event Form submitted:", formValues);
-    const res = await createEvent(formValues);
-    console.log('event created successfully');
+    const isValid = await validateForm();
+    if (isValid) {
+      console.log("Create Event Form submitted:", formValues);
+      setError(false)
+      const res = await createEvent(formValues);
+      if (res) {
+        await showToast();
+        setTimeout(() => {
+          window.location.reload()
+        }, 500);
+        console.log("event created successfully");
+      }
+    }else{
+      setError(true)
+    }
+  };
+
+  const showToast = async () => {
+    toast({
+      variant: "primary",
+      title: "Event created successfully",
+    });
+  };
+
+  const validateForm = async () => {
+    const {
+      eventDate,
+      eventDescription,
+      eventLocation,
+      eventTheme,
+      eventTime,
+    } = formValues;
+    if (
+      !eventDate &&
+      !eventDescription &&
+      !eventLocation &&
+      !eventTime &&
+      !eventTheme
+    ) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="text-black">Create Event</Button>
+        <Button variant="outline" className="text-black">
+          Create Event
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -121,6 +169,10 @@ export function CreateEventDialogBox() {
               />
             </div>
           </div>
+          {
+          
+          error ?  <p className="text-red-500 text-center mb-5"> Fill the all the input  </p> : null 
+          }
           <DialogFooter>
             <Button type="submit">Create Event</Button>
           </DialogFooter>

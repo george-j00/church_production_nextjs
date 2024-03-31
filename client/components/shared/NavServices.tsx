@@ -17,13 +17,13 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Evening Prayer",
-    href: "/services/evening-prayer", // Matches title in lowercase with hyphen
+    href: "#", // Matches title in lowercase with hyphen
     description:
       "Join us for a time of reflection and prayer in the evening.",
   },
   {
     title: "HOLY MASS",
-    href: "/services/holy-mass", // Matches title in lowercase with hyphen
+    href: "#", // Matches title in lowercase with hyphen
     description:
       "Attend the celebration of the Eucharist, the central act of Christian worship.",
   },
@@ -35,7 +35,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Live Service",
-    href: "/services/live-stream", // Descriptive name for live service
+    href: "#", // Descriptive name for live service
     description:
       "Watch our live stream service and participate from the comfort of your home.",
   },

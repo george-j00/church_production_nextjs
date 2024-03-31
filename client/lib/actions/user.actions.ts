@@ -15,8 +15,22 @@ export const prayerRequest = async (prayerRequestData:PrayerRequestParams ) => {
       const response = await axios.post(`${baseUrl}/prayer-request`, {
         prayerRequest: prayerRequestData,
       });
-      //   return response
-      console.log("this is responsee", response);
+      return response
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response) {
+        // const status = axiosError.response.status;
+        // return status
+        console.log("axios error ", axiosError);
+      }
+    }
+  };
+
+
+export const fetchAllImages = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/get-all-images`);
+        return response?.data?.images;
     } catch (error) {
       const axiosError = error as AxiosError;
       if (axiosError.response) {

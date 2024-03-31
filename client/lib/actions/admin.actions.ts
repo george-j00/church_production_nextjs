@@ -1,3 +1,4 @@
+
 const baseUrl = "http://localhost:3001/api/admin";
 import { EventParams } from "@/types";
 import axios, { AxiosError } from "axios";
@@ -7,8 +8,7 @@ export const createEvent = async (eventData: EventParams) => {
     const response = await axios.post(`${baseUrl}/create-event`, {
       event: eventData,
     });
-    //   return response
-    console.log("this is responsee", response);
+    return response
   } catch (error) {
     const axiosError = error as AxiosError;
     if (axiosError.response) {
@@ -33,8 +33,27 @@ export const deleteEvent = async (eventId: string) => {
 };
 export const fetchAllPrayerRequests = async () => {
   try {
-   const res =  await axios.get(`${baseUrl}/prayer-requests/getAll`);
+   const res = await axios.get(`${baseUrl}/prayer-requests/getAll`);
     return res?.data?.prayerRequests
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
+
+
+export const addImage = async (formData : any) => {
+  try {
+    console.log('payload', formData);
+    
+   const res = await axios.post(`${baseUrl}/addImage`,formData);
+    // return res?.data?.prayerRequests
+    console.log(res);
+    
   } catch (error) {
     const axiosError = error as AxiosError;
     if (axiosError.response) {

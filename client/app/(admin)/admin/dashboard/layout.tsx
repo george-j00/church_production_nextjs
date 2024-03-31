@@ -1,4 +1,5 @@
 import ProfileNavLinks from "@/components/shared/ProfileNavLinks";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function ProfileLayout({
   children,
@@ -42,6 +43,8 @@ export default function ProfileLayout({
       </aside>
       <div className="bg-gray-900 flex-[8] text-white p-4 rounded  min-h-[300px]">
         {children}
+        <Toaster />
+
       </div>
     </div>
     </section>

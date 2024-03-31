@@ -2,6 +2,7 @@
 import { prayerRequest } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useToast } from "../ui/use-toast";
 
 const prayerRequestTypes = [
   { value: "intercession-prayer", label: "Intercession Prayer" },
@@ -11,6 +12,7 @@ const prayerRequestTypes = [
 ];
 
 const PrayerRequestForm = () => {
+  const { toast } = useToast()
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -60,6 +62,21 @@ const PrayerRequestForm = () => {
     if (isValid) {
       console.log('Form submitted:', formData);
       const res = await prayerRequest(formData);
+      if (res) {
+        setFormData({
+          name: "",
+          phoneNumber: "",
+          place: "",
+          requestType: "",
+          specialPrayer: "",
+          amount: "",
+        });
+        toast({
+          variant: "primary",
+          title: "Prayer request submitted successfully",
+          description: "Contact church for further details",
+        })
+      }
     }
   };
 

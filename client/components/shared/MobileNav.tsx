@@ -19,17 +19,17 @@ const MobileNav = () => {
     <nav className="md:hidden">
       <Sheet>
         <SheetTrigger asChild>
-        <GiHamburgerMenu className="text-2xl text-black"/>
+        <GiHamburgerMenu className="text-2xl text-white"/>
         </SheetTrigger>
 
-        <SheetContent className="flex w-[90%] flex-col gap-6 text-white bg-black md:hidden">
-            <p>Church Name </p>
+        <SheetContent className="flex w-[80%] flex-col gap-6 text-black bg-teal-100	 md:hidden">
+            <p className="font-bold">St.Antony's Jacobite Syrian Orthodox Cathedral </p>
           <Separator className="border border-gray-500" />
           {/* <NavItems /> */}
           <div>
-            <ul className= "text-white flex flex-col gap-6">
+            <ul className= "text-black flex flex-col gap-6">
               <li>
-                <Link href="/about">About</Link>
+                <Link href="#aboutUs">About</Link>
               </li>
               <li>
                 <Link href="/events">Events</Link>
@@ -44,7 +44,7 @@ const MobileNav = () => {
                 <Link href="/gallery">Gallery</Link>
               </li>
               <li>
-                <Link href="/contacts">Contacts</Link>
+                <Link href="#contactUs">Contacts</Link>
               </li>
             </ul>
           </div>

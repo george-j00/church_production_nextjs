@@ -10,15 +10,23 @@ import {
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
   import { Button } from "@/components/ui/button"
+import { useToast } from "@/components/ui/use-toast"
 import { deleteEvent } from "@/lib/actions/admin.actions"
   
   export function DeleteEventDialogBox({eventId} : {eventId:string}) {
 
+    const { toast } = useToast()
     const handleDeleteEvent = async() => {
-     const res =    await deleteEvent(eventId)
-
-     console.log(res);
-     
+     const res = await deleteEvent(eventId)
+      if (res) {
+        toast({
+          variant: "destructive",
+          title: "Event deleted successfully",
+        });
+        setTimeout(() => {
+          window.location.reload()
+        }, 500);
+      }
     }
 
     return (
