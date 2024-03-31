@@ -12,7 +12,7 @@ const Contact = () => {
               <div className="md:w-1/2 md:pr-8 order-1">
                 <div className="lg:text-center">
                   <h2 className="text-3xl font-bold mb-5 text-center">
-                    St.Antony's Jacobite Syrian Orthodox Cathedral ,Manglore 
+                    St.Antony&apos;s Jacobite Syrian Orthodox Cathedral ,Manglore 
                   </h2>
                   <ContactDialog />
                 </div>
@@ -28,8 +28,8 @@ const Contact = () => {
                         Address
                       </dt>
                       <dd className="mt-2 text-base text-gray-500">
-                      St.Antony's Jacobite Syrian Orthodox Cathedral  <br />
-                      Under the Holy Apostolic See of Antioch and All the East & St Anthony's Educational Society Honnavar <br />
+                      St.Antony&apos;s Jacobite Syrian Orthodox Cathedral  <br />
+                      Under the Holy Apostolic See of Antioch and All the East & St Anthony&apos;s Educational Society Honnavar <br />
                       (Public Trust F-17 Karwar Registered under Charitable Societies Act) <br />
 <br />
                        Near Second Bridge , Jeppu , Manglore 575 002

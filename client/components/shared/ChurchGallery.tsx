@@ -5,38 +5,37 @@ import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-const ChurchGallery =  () => {
+const ChurchGallery = () => {
   // Define the list of church images
-//   const churchImages = [
-//     "image1.jpg",
-//     "image2.jpg",
-//     "image3.jpg",
-//     "image4.jpg",
-//     "image5.jpg", // Add more image URLs as needed
-//   ];
-const [images, setImages] = useState<any[]>([]);
+  //   const churchImages = [
+  //     "image1.jpg",
+  //     "image2.jpg",
+  //     "image3.jpg",
+  //     "image4.jpg",
+  //     "image5.jpg", // Add more image URLs as needed
+  //   ];
+  const [images, setImages] = useState<any[]>([]);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchImages = async () => {
       try {
         const response = await fetchAllImages();
         setImages(response); // Assuming response is an array of image objects
-        console.log('responsee gallery imageeesss',response);
-        
+        console.log("responsee gallery imageeesss", response);
       } catch (error) {
-        console.error('Error fetching images:', error);
+        console.error("Error fetching images:", error);
       }
     };
 
     fetchImages();
-  }, []); 
-    
+  }, []);
+
   // State to manage the visibility of the modal
   const [modalOpen, setModalOpen] = useState(false);
   // State to store the URL of the selected image
   const [selectedImage, setSelectedImage] = useState({
-    imageTitle : '',
-    imageUrl:''
+    imageTitle: "",
+    imageUrl: "",
   });
 
   // Function to handle click on an image and open the modal
@@ -48,8 +47,8 @@ useEffect(() => {
   // Function to close the modal
   const closeModal = () => {
     setSelectedImage({
-      imageTitle: '',
-      imageUrl: '',
+      imageTitle: "",
+      imageUrl: "",
     });
     setModalOpen(false);
   };
@@ -60,12 +59,12 @@ useEffect(() => {
       <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6">
         {images?.map((image, index) => (
           <div key={index} className="overflow-hidden rounded-lg shadow-md">
-            <img
+            <Image
               width={1000}
               height={1000}
               src={image?.imageUrl}
               alt={`Church Image ${index + 1}`}
-              className="w-full h-auto cursor-pointer"
+              className="cursor-pointer"
               onClick={() => handleImageClick(image)}
             />
           </div>
@@ -80,9 +79,11 @@ useEffect(() => {
               className="absolute top-0 right-0 m-4 text-gray-100 text-2xl cursor-pointer"
               onClick={closeModal}
             >
-             close &times;
+              close &times;
             </button>
-            <img
+            <Image
+              height={800}
+              width={800}
               src={selectedImage?.imageUrl}
               alt={`Enlarged Image`}
               className="max-w-full max-h-full"
@@ -93,5 +94,5 @@ useEffect(() => {
     </div>
   );
 };
-    
+
 export default ChurchGallery;

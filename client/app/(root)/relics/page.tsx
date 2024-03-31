@@ -30,7 +30,7 @@ const Relics = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold text-center mb-6 text-indigo-500">Relics</h2>
-      <p className="text-center  mb-10">In the church, relics are the mortal remains of a saint, or any object that has been in contact with the saint. The term "relic" comes from the Latin word reliquiae, which means "remains".</p>
+      <p className="text-center  mb-10">In the church, relics are the mortal remains of a saint, or any object that has been in contact with the saint. The term relic comes from the Latin word reliquiae, which means remains.</p>
       <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-6">
         {relics.map((image, index) => (
           <div key={index} className="overflow-hidden rounded-lg shadow-md">
@@ -56,9 +56,11 @@ const Relics = () => {
             >
              close &times;
             </button>
-            <img
+            <Image 
+              height={500}
+              width={500}
               src={`/assets/relics/${selectedImage}`}
-              alt={`Enlarged Image`}
+              alt="Enlarged Image"
               className="max-w-full max-h-full"
             />
           </div>

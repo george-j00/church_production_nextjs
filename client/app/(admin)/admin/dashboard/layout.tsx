@@ -10,7 +10,7 @@ export default function ProfileLayout({
    <>
     <section className=" bg-black min-h-[300px] h-screen pt-[50px]">
     <h1 className="text-white text-3xl text-center font-bold">Admin Panel </h1>
-    <h1 className="text-white text-3xl text-center mt-5 mb-5 font-bold">St.Antony's Jacobite Syrian Cathedral</h1>
+    <h1 className="text-white text-3xl text-center mt-5 mb-5 font-bold">St.Antony&apos;s Jacobite Syrian Cathedral</h1>
 
     <div className="wrapper flex gap-8 wrapper flex-col md:flex-row ">
       <aside className="flex-[2] h-full">

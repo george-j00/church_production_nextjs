@@ -23,7 +23,7 @@ const MobileNav = () => {
         </SheetTrigger>
 
         <SheetContent className="flex w-[80%] flex-col gap-6 text-black bg-teal-100	 md:hidden">
-            <p className="font-bold">St.Antony's Jacobite Syrian Orthodox Cathedral </p>
+            <p className="font-bold">St.Antony&apos;s Jacobite Syrian Orthodox Cathedral </p>
           <Separator className="border border-gray-500" />
           {/* <NavItems /> */}
           <div>
