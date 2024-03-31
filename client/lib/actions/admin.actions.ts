@@ -1,5 +1,5 @@
 
-const baseUrl = "http://localhost:3001/api/admin";
+const baseUrl = "https://chuch-backend-nodejs-6.onrender.com/api/admin";
 import { EventParams } from "@/types";
 import axios, { AxiosError } from "axios";
 

@@ -66,7 +66,7 @@ export function EventTable() {
   }, []);
 
   const fetchAllEvents = async () => {
-    const res = await axios.get("http://localhost:3001/api/admin/getAllEvents");
+    const res = await axios.get("https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents");
     console.log(res?.data?.events);
     return res?.data?.events;
   };

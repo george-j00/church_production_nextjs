@@ -34,7 +34,10 @@ useEffect(() => {
   // State to manage the visibility of the modal
   const [modalOpen, setModalOpen] = useState(false);
   // State to store the URL of the selected image
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState({
+    imageTitle : '',
+    imageUrl:''
+  });
 
   // Function to handle click on an image and open the modal
   const handleImageClick = (image: any) => {
@@ -44,7 +47,10 @@ useEffect(() => {
 
   // Function to close the modal
   const closeModal = () => {
-    setSelectedImage(null);
+    setSelectedImage({
+      imageTitle: '',
+      imageUrl: '',
+    });
     setModalOpen(false);
   };
 
@@ -71,13 +77,13 @@ useEffect(() => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
           <div className="relative max-w-full max-h-full">
             <button
-              className="absolute top-0 right-0 m-4 text-gray-500 text-2xl cursor-pointer"
+              className="absolute top-0 right-0 m-4 text-gray-100 text-2xl cursor-pointer"
               onClick={closeModal}
             >
              close &times;
             </button>
             <img
-              src={`/assets/${selectedImage}`}
+              src={selectedImage?.imageUrl}
               alt={`Enlarged Image`}
               className="max-w-full max-h-full"
             />
