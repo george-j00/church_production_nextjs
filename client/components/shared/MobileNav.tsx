@@ -7,6 +7,7 @@ import { Separator } from "../ui/separator";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavService } from "./NavServices";
+import { NavAbout } from "./NavAbout";
 
 const MobileNav = () => { 
   return (
@@ -22,8 +23,8 @@ const MobileNav = () => {
           {/* <NavItems /> */}
           <div>
             <ul className= "text-black flex flex-col gap-6">
-              <li>
-                <Link href="#aboutUs">About</Link>
+            <li>
+                <NavAbout />
               </li>
               <li>
                 <Link href="/events">Events</Link>
@@ -31,14 +32,15 @@ const MobileNav = () => {
               <li>
                 <Link href="/relics">Relics</Link>
               </li>
-              <li className="dropdown hover:text-gray-400">
-                <NavService />
-              </li>
+              
               <li>
                 <Link href="/gallery">Gallery</Link>
               </li>
               <li>
                 <Link href="#contactUs">Contacts</Link>
+              </li>
+              <li className="dropdown hover:text-gray-400">
+                <NavService />
               </li>
             </ul>
           </div>
