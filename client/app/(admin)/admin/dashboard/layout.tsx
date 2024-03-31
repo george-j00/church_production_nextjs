@@ -30,11 +30,6 @@ export default function ProfileLayout({
               <ProfileNavLinks href="/admin/dashboard/prayer-requests">Prayer Requests</ProfileNavLinks>
             </li>
             <li>
-              <ProfileNavLinks href="/admin/dashboard/update">
-                Update Data
-              </ProfileNavLinks>
-            </li>
-            <li>
               <ProfileNavLinks href="/admin/dashboard/gallery">Gallery</ProfileNavLinks>
             </li>
            

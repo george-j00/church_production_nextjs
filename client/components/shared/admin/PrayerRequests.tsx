@@ -39,8 +39,8 @@ import {
 import { CreateEventDialogBox } from "./CreateEventDialogBox";
 import { useEffect } from "react";
 import axios from "axios";
-import { DeleteEventDialogBox } from "./DeleteEventDialogBox";
 import { fetchAllPrayerRequests } from "@/lib/actions/admin.actions";
+import { DeletePrayerDialogBox } from "./DeletePrayerRequest";
 // import { getAllUsers } from "@/lib/actions/user.actions";
 // import Banuser from "./Banuser";
 export type PrayerRequestType = {
@@ -136,7 +136,7 @@ export type PrayerRequestType = {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="text-green-500">
-              <DeleteEventDialogBox eventId={prayerRequest?._id}/>
+              <DeletePrayerDialogBox prayerRequestId={prayerRequest?._id}/>
               </DropdownMenuContent>
             </DropdownMenu>
           );

@@ -11,13 +11,13 @@ import {
   } from "@/components/ui/alert-dialog"
   import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import { deleteEvent } from "@/lib/actions/admin.actions"
+import { deleteEvent, deletePrayerRequest } from "@/lib/actions/admin.actions"
   
-  export function DeleteEventDialogBox({eventId} : {eventId:string}) {
+  export function DeletePrayerDialogBox({prayerRequestId} : {prayerRequestId:string}) {
 
     const { toast } = useToast()
     const handleDeleteEvent = async() => {
-     const res = await deletePrayerRequest(eventId)
+     const res = await deletePrayerRequest(prayerRequestId)
       if (res) {
         toast({
           variant: "destructive",

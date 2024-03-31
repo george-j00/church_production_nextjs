@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import { addImage, createEvent } from "@/lib/actions/admin.actions";
 import { useState } from "react";
 
@@ -22,6 +23,7 @@ interface CreateImageFormValues {
 }
 
 export function AddImageDialogBox() {
+  const { toast } = useToast()
   const [formValues, setFormValues] = useState<CreateImageFormValues>({
     imageFile: null,
     imageTitle: "",
@@ -51,6 +53,19 @@ export function AddImageDialogBox() {
     console.log("Create Image Form submitted:", formValues);
     // Perform image upload logic here
     const res = await addImage(formData);
+
+    if (res) {
+      toast({
+        variant: "primary",
+        title: "Image added successfully",
+      });
+    }else{
+      toast({
+        variant: "destructive",
+        title: "Image did not add successfully",
+      });
+    }
+    
   };
 
   return (
@@ -75,6 +90,7 @@ export function AddImageDialogBox() {
                 accept="image/*"
                 onChange={handleImageChange}
                 className="col-span-3"
+                required
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
@@ -88,6 +104,7 @@ export function AddImageDialogBox() {
                 value={formValues.imageTitle}
                 onChange={handleTitleChange}
                 className="col-span-3"
+                required
               />
             </div>
           </div>
