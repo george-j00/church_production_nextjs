@@ -17,7 +17,8 @@ const PrayerRequestSchema: Schema = new Schema({
     place: { type: String, required: true },
     requestType: { type: String, required: true },
     specialPrayer: { type: String }, // Optional field
-    amount: { type: String, required: true }
+    amount: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now }
 });
 
 // Create and export the model

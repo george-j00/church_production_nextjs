@@ -15,7 +15,8 @@ const EventSchema: Schema = new Schema({
     eventLocation: { type: String, required: true },
     eventTheme: { type: String, required: true },
     eventTime: { type: String, required: true },
-    eventDescription: { type: String, required: true }
+    eventDescription: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now }
 });
 
 // Create and export the model
