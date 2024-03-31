@@ -6,17 +6,19 @@ import { start } from 'simple-auth-connection';
 import userRouter from './routes/user.routes';
 import adminRouter from './routes/admin.routes';
 
+const port=3001
+const MONGODB_URI = "mongodb+srv://subingeorge027:r8YYsvRFrBYM1xIl@cluster0.beslpvh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 dotenv.config();
 const app : Express = express();
-const port = process.env.PORT;
+// const port = process.env.PORT;
 
 // async function startMongo(){
 //   await start(process.env.MONGODB_URI!)
 // }
 
 // startMongo();
-start(process.env.MONGODB_URI!)
+start(MONGODB_URI!)
 
 
 app.use(cookieParser());
