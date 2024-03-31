@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -7,8 +6,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
-import { UserAvatar } from "./Avatar";
 import TestimonialCard from "./TestimonialCard";
 
 export function TestimonialCarousel() {

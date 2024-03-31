@@ -1,19 +1,11 @@
 "use client";
 
 import { fetchAllImages } from "@/lib/actions/user.actions";
-import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const ChurchGallery = () => {
-  // Define the list of church images
-  //   const churchImages = [
-  //     "image1.jpg",
-  //     "image2.jpg",
-  //     "image3.jpg",
-  //     "image4.jpg",
-  //     "image5.jpg", // Add more image URLs as needed
-  //   ];
+
   const [images, setImages] = useState<any[]>([]);
 
   useEffect(() => {

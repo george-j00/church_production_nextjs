@@ -1,16 +1,10 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Image from "next/image";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
-import { Button } from "../ui/button";
-//   import NavItems from "./NavItems"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavService } from "./NavServices";
 

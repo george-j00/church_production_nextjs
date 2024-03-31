@@ -3,9 +3,7 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -14,26 +12,6 @@ import { EventParams } from "@/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// const events = [
-//   {
-//     date: "Nov 15, 2024",
-//     location: "Chapel",
-//     theme: "Harvest festival",
-//     status: "Not over",
-//   },
-//   {
-//     date: "Nov 23, 2024",
-//     location: "Chapel",
-//     theme: "Vehicle Blessing",
-//     status: "Not over",
-//   },
-//   {
-//     date: "March 01, 2024",
-//     location: "Chapel",
-//     theme: "Mary's Feast",
-//     status: "Over",
-//   },
-// ];
 export function EventTable() {
   const [events, setEventData] = useState<EventParams[]>([]);
   const [isLoading, setIsLoading] = useState(false);

@@ -1,44 +1,10 @@
 import React from "react";
-import EventCard from "./EventCard";
-import { EventTable } from "./EventTable";
-import { Separator } from "@radix-ui/react-separator";
 import VisionMission from "./VisionMission";
 import { TestimonialCarousel } from "./TestimonialsCarousel";
 import AboutUs from "./AboutUs";
 
 const Hero = () => {
-  const cardsData = [
-    {
-      title: "Card Title 1",
-      description: "This is a sample description for the first card.",
-      image: "/images/card-image1.jpg", // Replace with your image path
-    },
-    {
-      title: "Card Title 8",
-      description: "This is a sample description for the last card.",
-      image: "/images/card-image8.jpg", // Replace with your image path
-    },
-    {
-      title: "Card Title 8",
-      description: "This is a sample description for the last card.",
-      image: "/images/card-image8.jpg", // Replace with your image path
-    },
-    {
-      title: "Card Title 8",
-      description: "This is a sample description for the last card.",
-      image: "/images/card-image8.jpg", // Replace with your image path
-    },
-    {
-      title: "Card Title 8",
-      description: "This is a sample description for the last card.",
-      image: "/images/card-image8.jpg", // Replace with your image path
-    },
-    {
-      title: "Card Title 8",
-      description: "This is a sample description for the last card.",
-      image: "/images/card-image8.jpg", // Replace with your image path
-    },
-  ];
+
 
   return (
     <>

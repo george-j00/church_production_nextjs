@@ -11,7 +11,7 @@ import {
   } from "@/components/ui/alert-dialog"
   import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import { deleteEvent, deletePrayerRequest } from "@/lib/actions/admin.actions"
+import { deletePrayerRequest } from "@/lib/actions/admin.actions"
   
   export function DeletePrayerDialogBox({prayerRequestId} : {prayerRequestId:string}) {
 
