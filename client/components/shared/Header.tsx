@@ -9,7 +9,7 @@ const Header = () => {
         <Navbar />
         <div className="container flex flex-col justify-center items-center h-screen mt-[-150px] text-center">
           <h1 className="text-3xl font-extrabold text-white md:text-6xl">
-            "Our faith can move mountains."
+          &quot;Our faith can move mountains&quot;
             <br />
             <span className="text-gray-100 text-2xl inline-block">
               - Matthew 17:20
