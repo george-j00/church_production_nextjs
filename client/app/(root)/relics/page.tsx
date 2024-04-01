@@ -59,7 +59,7 @@ const Relics = () => {
       </p>
 
       <div className="grid md:grid-cols-1 gap-6">
-        {relics.map((relic, index) => (
+        {relics?.map((relic, index) => (
           <div key={index} className="flex flex-col md:flex-row items-justify">
             <div className="overflow-hidden rounded-lg shadow-md md:w-1/3">
               <Image

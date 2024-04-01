@@ -94,7 +94,7 @@ export const addRelic = async (formData : any) => {
   try {
     console.log('payload', formData);
     
-   const res = await axios.post(`http://localhost:3001/api/admin/add-relics`,formData);
+   const res = await axios.post(`${baseUrl}/add-relics`,formData);
    console.log(res);
     return res?.data
   } catch (error) {

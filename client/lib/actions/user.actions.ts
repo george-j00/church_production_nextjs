@@ -40,9 +40,10 @@ export const fetchAllImages = async () => {
       }
     }
   };
+
 export const fetchAllRelics = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/user/fetchRelics`);
+      const response = await axios.get(`${baseUrl}/fetchRelics`);
         return response?.data?.relics;
     } catch (error) {
       const axiosError = error as AxiosError;
@@ -53,11 +54,3 @@ export const fetchAllRelics = async () => {
       }
     }
   };
-
-
-
-  // const fetchAllEvents = async () => {
-  //   const res = await axios.get("https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents");
-  //   console.log(res?.data?.events);
-  //   return res?.data?.events;
-  // };
