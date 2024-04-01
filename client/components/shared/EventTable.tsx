@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { fetchAllEvents } from "@/lib/actions/admin.actions";
 import { EventParams } from "@/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -43,11 +44,7 @@ export function EventTable() {
     fetchUsers();
   }, []);
 
-  const fetchAllEvents = async () => {
-    const res = await axios.get("https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents");
-    console.log(res?.data?.events);
-    return res?.data?.events;
-  };
+
   return (
     <>
       {isLoading ? (

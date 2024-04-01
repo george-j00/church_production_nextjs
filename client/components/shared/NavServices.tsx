@@ -48,7 +48,7 @@ export function NavService() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-black text-white">Services </NavigationMenuTrigger>
           <NavigationMenuContent className="bg-black text-white">
-            <ul className="grid w-[300px] gap-1 p-4 md:w-[500px] md:grid-cols-2 ">
+            <ul className="grid w-[300px] gap-1 p-4 md:w-[450px] md:grid-cols-2 ">
               {components.map((component) => (
                 <ListItem
                   key={component.title}

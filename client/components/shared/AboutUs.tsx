@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const AboutUs = () => {
@@ -39,6 +40,9 @@ const AboutUs = () => {
             celebrate its legacy and look to the future, St. Antony’s Jacobite
             Syrian Church stands as a testament to the enduring power of faith
             and unity—a beacon of light in an ever-changing world.
+          </p>
+         <p className="text-md text-blue-500 text-center mt-1">
+          <Link href={"/church-history"}>Read more ...</Link>
           </p>
         </div>
       </section>

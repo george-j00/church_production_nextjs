@@ -75,3 +75,34 @@ export const addImage = async (formData : any) => {
     }
   }
 };
+
+export const fetchAllEvents = async () => {
+  try {
+    const response = await axios.get(`${baseUrl}/getAllEvents`);
+      return response?.data?.events;
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
+
+export const addRelic = async (formData : any) => {
+  try {
+    console.log('payload', formData);
+    
+   const res = await axios.post(`http://localhost:3001/api/admin/add-relics`,formData);
+   console.log(res);
+    return res?.data
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};

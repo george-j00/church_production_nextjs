@@ -14,23 +14,21 @@ const Navbar = () => {
           <Image
             src="/assets/ChurchLogo.png"
             alt="Church logo"
-            width={100}
+            width={70}
             height={28}
           />
           {/* Church Name */}
-          <div className="flex flex-col mt-5 text-white text-center w-[70%] md:w-[90%]">
-          <h1 className=" text-2xl  font-extrabold">
+          <div className="flex flex-col mt-3 ml-1 md:mr-5  text-white text-center w-[75%] md:w-[90%]">
+          <h1 className=" text-lg md:text-2xl font-extrabold">
             St.Antony&apos;s Jacobite Syrian Orthodox Cathedral
           </h1>
-          <p className="text-sm md:w-[85%] md:ml-[50px]   text-gray-200">Under the Holy Apostolic See of Antioch and All the East & St Anthony&apos;s Educational Society Honnavar (Public Trust F-17 Karwar Registered under Charitable Societies Act)</p>
+          <p className="text-xs  md:text-sm  md:w-[85%] md:ml-[50px] text-gray-200">Under the Holy Apostolic See of Antioch and All the East & St Anthony&apos;s Educational Society Honnavar (Public Trust F-17 Karwar Registered under Charitable Societies Act)</p>
           </div>
         </div>
         {/* Navigation Links */}
         <ul className="hidden md:flex text-white font-extrabold space-x-8">
           <li>
-            {/* <Link href="#aboutUs">About</Link> */}
             <NavAbout />  
-            {/* <a href="#aboutUs">About</a> */}
           </li>
           <li>
             <NavService />
