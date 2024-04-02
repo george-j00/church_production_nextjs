@@ -54,3 +54,17 @@ export const fetchAllRelics = async () => {
       }
     }
   };
+
+export const fetchAllBanners = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3001/api/user/fetchAllBanners`);
+        return response?.data?.banners;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response) {
+        // const status = axiosError.response.status;
+        // return status
+        console.log("axios error ", axiosError);
+      }
+    }
+  };

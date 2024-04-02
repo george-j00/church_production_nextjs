@@ -264,7 +264,7 @@ export type PrayerRequestType = {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                 {isLoading ?  <p>Loading prayer requests ...</p> : <p>No results.</p>}
                 </TableCell>
               </TableRow>
             )}

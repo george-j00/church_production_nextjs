@@ -7,15 +7,22 @@ import React, { useEffect, useState } from "react";
 const ChurchGallery = () => {
 
   const [images, setImages] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
+        setLoading(true);
         const response = await fetchAllImages();
         setImages(response); // Assuming response is an array of image objects
+        if (response) {
+          setLoading(false);
+        }
         console.log("responsee gallery imageeesss", response);
       } catch (error) {
         console.error("Error fetching images:", error);
+      }finally{
+        setLoading(false);
       }
     };
 
@@ -49,7 +56,7 @@ const ChurchGallery = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold text-center mb-6">Church Gallery</h2>
       <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {images?.map((image, index) => (
+        { images?.map((image, index) => (
           <div key={index} className="overflow-hidden rounded-lg shadow-md">
             <Image
               width={1000}
@@ -62,7 +69,9 @@ const ChurchGallery = () => {
           </div>
         ))}
       </div>
-
+      {
+          loading && (<p className="flex items-center justify-center h-screen"> Images Loading.... </p>)
+        }
       {/* Modal for displaying enlarged image */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">

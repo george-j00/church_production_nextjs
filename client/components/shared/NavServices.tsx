@@ -13,30 +13,30 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Evening Prayer",
-    href: "#", // Matches title in lowercase with hyphen
-    description:
-      "Join us for a time of reflection and prayer in the evening.",
-  },
-  {
-    title: "HOLY MASS",
-    href: "#", // Matches title in lowercase with hyphen
-    description:
-      "Attend the celebration of the Eucharist, the central act of Christian worship.",
-  },
+  // {
+  //   title: "Evening Prayer",
+  //   href: "#", // Matches title in lowercase with hyphen
+  //   description:
+  //     "Join us for a time of reflection and prayer in the evening.",
+  // },
+  // {
+  //   title: "HOLY MASS",
+  //   href: "#", // Matches title in lowercase with hyphen
+  //   description:
+  //     "Attend the celebration of the Eucharist, the central act of Christian worship.",
+  // },
   {
     title: "Prayer Request",
     href: "/services/prayer-request", // Matches title in lowercase with hyphen
     description:
       "Submit a prayer request for yourself or someone you care about.",
   },
-  {
-    title: "Live Service",
-    href: "#", // Descriptive name for live service
-    description:
-      "Watch our live stream service and participate from the comfort of your home.",
-  },
+  // {
+  //   title: "Live Service",
+  //   href: "#", // Descriptive name for live service
+  //   description:
+  //     "Watch our live stream service and participate from the comfort of your home.",
+  // },
 ];
 
 
@@ -48,7 +48,7 @@ export function NavService() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-black text-white">Services </NavigationMenuTrigger>
           <NavigationMenuContent className="bg-black text-white">
-            <ul className="grid w-[300px] gap-1 p-4 md:w-[450px] md:grid-cols-2 ">
+            <ul className="grid w-[300px] gap-1 p-4 md:w-[300px] md:grid-cols-1 ">
               {components.map((component) => (
                 <ListItem
                   key={component.title}

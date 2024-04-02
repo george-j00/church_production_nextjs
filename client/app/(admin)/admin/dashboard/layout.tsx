@@ -45,6 +45,11 @@ export default function ProfileLayout({
                     Add Relics
                   </ProfileNavLinks>
                 </li>
+                <li>
+                  <ProfileNavLinks href="/admin/dashboard/banner">
+                    Banner management
+                  </ProfileNavLinks>
+                </li>
               </ul>
             </nav>
           </aside>

@@ -124,7 +124,7 @@ const getColumns = (data: any) => {
               <DropdownMenuSeparator />
               {/* <DropdownMenuItem>Edit event</DropdownMenuItem> */}
               <DropdownMenuItem className="text-red-500" asChild>
-                <DeleteEventDialogBox eventId={event?._id}/>
+                <DeleteEventDialogBox eventId={event?._id} />
               </DropdownMenuItem>
               <DropdownMenuItem className="text-red-500" asChild>
                 {/* <Banuser userId={user?._id} status={user?.status} /> */}
@@ -170,7 +170,9 @@ export function EventManagement() {
   }, []);
 
   const fetchAllEvents = async () => {
-    const res = await axios.get("https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents");
+    const res = await axios.get(
+      "https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents"
+    );
     console.log(res?.data?.events);
     return res?.data?.events;
   };
@@ -280,7 +282,8 @@ export function EventManagement() {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  
+                  {isLoading ?  <p>Loading events ...</p> : <p>No results.</p>}
                 </TableCell>
               </TableRow>
             )}
