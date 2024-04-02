@@ -57,7 +57,7 @@ export const fetchAllRelics = async () => {
 
 export const fetchAllBanners = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/user/fetchAllBanners`);
+      const response = await axios.get(`${baseUrl}/fetchAllBanners`);
         return response?.data?.banners;
     } catch (error) {
       const axiosError = error as AxiosError;
