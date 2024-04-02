@@ -24,7 +24,7 @@ export const prayerRequest = async (prayerRequestData:PrayerRequestParams ) => {
         console.log("axios error ", axiosError);
       }
     }
-  };
+};
 
 
 export const fetchAllImages = async () => {

@@ -111,7 +111,7 @@ export const addLandingBanner = async (formData : any) => {
   try {
     console.log('payload', formData);
     
-   const res = await axios.post(`${baseUrl}/add-banner`,formData);
+   const res = await axios.post(`http://localhost:3001/api/admin/add-banner`,formData);
    console.log(res);
     return res?.data
   } catch (error) {
