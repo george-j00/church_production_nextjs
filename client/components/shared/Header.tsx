@@ -33,44 +33,38 @@ const Header = () => {
 
   return (
     <>
-      <div className="relative flex flex-col h-screen w-full">
-        <div className="absolute z-10">
-          <Navbar />
-        </div>
+      <div className="relative">
+        <Navbar />
 
-        <Carousel className="absolute w-full h-full">
+        <Carousel >
           <CarouselContent>
             {/* Map through images and dynamically change background */}
             {banners.map((banner, index) => (
               <CarouselItem key={index}>
-                <div className="">
-                  <div className="">
-                    <div className="max-w-full">
-                      <div
-                        className="bg-cover bg-center w-screen h-[100vh] mt-[10px] rounded-lg relative"
-                        style={{ backgroundImage: `url(${banner?.imageUrl})` }}
-                      >
-                        {/* Content inside each carousel item */}
-                        <div className="p-6 text-center flex justify-center items-center w-full h-full relative">
-                          <h1 className="text-4xl font-extrabold text-white bg-white/10 p-5 md:text-6xl">
-                            {banner?.quote}
-                            <br />
-                            <span className="text-gray-100 text-2xl inline-block">
-                              - {banner?.author}
-                            </span>
-                          </h1>
-                          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 text-center">
-                            <p className="text-white text-1xl">
-                              Swipe down for more details
-                            </p>
-                            <Image
-                              src="/assets/swipe.gif"
-                              alt="Move down gif"
-                              width={40}
-                              height={40}
-                            />
-                          </div>
-                        </div>
+                <div className="relative">
+                  <div
+                    className="bg-cover bg-center h-screen relative"
+                    style={{ backgroundImage: `url(${banner?.imageUrl})`, minHeight: 'calc(100vh - 64px)' }}
+                  >
+                    {/* Content inside each carousel item */}
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
+                      <h1 className="text-4xl font-extrabold text-white bg-black bg-opacity-50 p-5 md:text-6xl">
+                        {banner?.quote}
+                        <br />
+                        <span className="text-gray-100 text-2xl inline-block">
+                          - {banner?.author}
+                        </span>
+                      </h1>
+                      <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 text-center">
+                        <p className="text-white text-1xl">
+                          Swipe down for more details
+                        </p>
+                        <Image
+                          src="/assets/swipe.gif"
+                          alt="Move down gif"
+                          width={40}
+                          height={40}
+                        />
                       </div>
                     </div>
                   </div>
