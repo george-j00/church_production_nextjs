@@ -14,59 +14,46 @@ import {
 import { fetchAllBanners } from "@/lib/actions/user.actions";
 
 const Header = () => {
-  interface IBanner {
-    imageUrl: string;
-    quote: string;
-    author: string;
-  }
-  const [banners, setAllBanners] = useState<IBanner[]>([]);
-  useEffect(() => {
-    const fetchBanners = async () => {
-      const res = await fetchAllBanners();
-      if (res) {
-        setAllBanners(res);
-      }
-    };
-
-    fetchBanners();
-  }, []);
-
   const carouselImages = [
     {
-      imageUrl:'/assets/carousel/carousel4.jpg',
-      quote:'With God, all things are possible',
-      author:'Matthew 19:26'
+      imageUrl: "/assets/carousel/carousel4.jpg",
+      quote: "With God, all things are possible",
+      author: "Matthew 19:26",
     },
     {
-      imageUrl:'/assets/carousel/carousel1.png',
-      quote:'With God, all things are possible',
-      author:'Matthew 19:26'
+      imageUrl: "/assets/carousel/carousel2.JPG",
+      quote: "Our faith can move mountains",
+      author: "Matthew 17:20",
     },
     {
-      imageUrl:'/assets/carousel/carousel2.png',
-      quote:'With God, all things are possible',
-      author:'Matthew 19:26'
+      imageUrl: "/assets/carousel/carousel1.png",
+      quote: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
+      author: "Jeremiah 29:11",
     },
     {
-      imageUrl:'/assets/carousel/carousel3.png',
-      quote:'With God, all things are possible',
-      author:'Matthew 19:26'
-    }
-  ]
+      imageUrl: "/assets/carousel/carousel3.png",
+      quote: "Give all your worries and cares to God, for he cares about you"    ,                          
+      author: "1 Peter 5:7",
+    },
+  ];
 
   return (
     <>
       <div className="relative">
         <Navbar />
-        <Carousel >
+        <Carousel>
           <CarouselContent>
             {/* Map through images and dynamically change background */}
             {carouselImages.map((banner, index) => (
               <CarouselItem key={index}>
-                <div className="relative">
+                <div className="relative ">
                   <div
-                    className="bg-cover bg-center h-screen relative"
-                    style={{ backgroundImage: `url(${banner?.imageUrl})`}}
+                    className="bg-cover bg-center h-[100vh] relative"
+                    style={{
+                      backgroundImage: `url(${banner?.imageUrl})`,
+                      backgroundPositionY: "5%", // Move the image down by 5%
+                      transform: "translateY(-5%)", // Move the image down by 5%
+                    }}
                   >
                     {/* Content inside each carousel item */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
