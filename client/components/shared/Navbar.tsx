@@ -6,8 +6,8 @@ import { NavAbout } from "./NavAbout";
 
 const Navbar = () => {
   return (
-    <nav>
-    <div className=" mx-auto px-4 py-5 flex justify-around items-center bg-primary-50">
+    <nav >
+    <div className=" mx-auto px-4 py-5 flex justify-around items-center bg-transpar">
       {/* Logo and Church Name */}  
       <div className="flex items-center">
         {/* Church Logo */}

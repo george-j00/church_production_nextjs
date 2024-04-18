@@ -31,20 +31,42 @@ const Header = () => {
     fetchBanners();
   }, []);
 
+  const carouselImages = [
+    {
+      imageUrl:'/assets/carousel/carousel4.jpg',
+      quote:'With God, all things are possible',
+      author:'Matthew 19:26'
+    },
+    {
+      imageUrl:'/assets/carousel/carousel1.png',
+      quote:'With God, all things are possible',
+      author:'Matthew 19:26'
+    },
+    {
+      imageUrl:'/assets/carousel/carousel2.png',
+      quote:'With God, all things are possible',
+      author:'Matthew 19:26'
+    },
+    {
+      imageUrl:'/assets/carousel/carousel3.png',
+      quote:'With God, all things are possible',
+      author:'Matthew 19:26'
+    }
+  ]
+
   return (
     <>
       <div className="relative">
         <Navbar />
-
         <Carousel >
           <CarouselContent>
             {/* Map through images and dynamically change background */}
-            {banners.map((banner, index) => (
+            {carouselImages.map((banner, index) => (
               <CarouselItem key={index}>
                 <div className="relative">
                   <div
                     className="bg-cover bg-center h-screen relative"
-                    style={{ backgroundImage: `url(${banner?.imageUrl})`, minHeight: 'calc(100vh - 64px)' }}
+                    style={{ backgroundImage: `url(${banner?.imageUrl})`}}
                   >
                     {/* Content inside each carousel item */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
