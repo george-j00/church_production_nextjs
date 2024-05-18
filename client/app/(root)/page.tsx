@@ -1,14 +1,15 @@
-import Contact from "@/components/shared/Contact";
-import Header from "@/components/shared/Header";
-import Hero from "@/components/shared/Hero";
+import Contact from "@/components/pages/contact/Contact";
+import EventPage from "@/components/pages/event/Events";
+import Header from "@/components/pages/landing/Header";
+import Hero from "@/components/pages/hero/Hero";
 
 export default function Home() {
   return (
     <>
       <section className="flex flex-col gap-8">
         <Header />
+        <EventPage />
         <Hero />
-        {/* <Team /> */}
         <Contact />
       </section>
     </>

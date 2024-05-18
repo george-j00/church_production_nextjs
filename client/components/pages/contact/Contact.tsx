@@ -1,5 +1,5 @@
 import React from "react";
-import ContactDialog from "./ContactDialog";
+import ContactDialog from "../../shared/contact/ContactDialog";
 
 const Contact = () => {
   return (

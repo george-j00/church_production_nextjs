@@ -2,7 +2,7 @@
 import { prayerRequest } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import React, { useState } from "react";
-import { useToast } from "../ui/use-toast";
+import { useToast } from "../../ui/use-toast";
 
 const prayerRequestTypes = [
   { value: "intercession-prayer", label: "Intercession Prayer" },

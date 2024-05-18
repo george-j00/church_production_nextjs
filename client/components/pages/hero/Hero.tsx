@@ -1,7 +1,7 @@
 import React from "react";
-import VisionMission from "./VisionMission";
-import { TestimonialCarousel } from "./TestimonialsCarousel";
-import AboutUs from "./AboutUs";
+import VisionMission from "../vision-mission/VisionMission";
+import AboutUs from "../about/AboutUs";
+import { TestimonialCarousel } from "../../shared/testimonials/TestimonialsCarousel";
 
 const Hero = () => {
 

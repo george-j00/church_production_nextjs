@@ -1,4 +1,4 @@
-import { PrayerRequestManagement } from '@/components/shared/admin/PrayerRequests'
+import { PrayerRequestManagement } from '@/components/admin/prayer-requests/PrayerRequests'
 import React from 'react'
 
 const page = () => {

@@ -39,6 +39,7 @@ import { CreateEventDialogBox } from "./CreateEventDialogBox";
 import { useEffect } from "react";
 import axios from "axios";
 import { DeleteEventDialogBox } from "./DeleteEventDialogBox";
+import { AddEventImage } from "./add-event-image/page";
 
 export type eventType = {
   _id: string;
@@ -47,34 +48,11 @@ export type eventType = {
   eventTheme: string;
   eventTime: string;
   eventDescription?: string;
+  imageUrls?: string[];
 };
 
 const getColumns = (data: any) => {
   const columns: ColumnDef<eventType>[] = [
-    {
-      id: "select",
-      header: ({ table }) => (
-        <Checkbox
-          className="bg-white"
-          checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
-          }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="Select all"
-        />
-      ),
-      cell: ({ row }) => (
-        <Checkbox
-          className="bg-white"
-          checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label="Select row"
-        />
-      ),
-      enableSorting: false,
-      enableHiding: false,
-    },
     {
       accessorKey: "eventDate",
       header: "Event Date",
@@ -123,11 +101,12 @@ const getColumns = (data: any) => {
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {/* <DropdownMenuItem>Edit event</DropdownMenuItem> */}
+              <DropdownMenuItem className="" asChild>
+                <AddEventImage />
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem className="text-red-500" asChild>
                 <DeleteEventDialogBox eventId={event?._id} />
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-red-500" asChild>
-                {/* <Banuser userId={user?._id} status={user?.status} /> */}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -138,7 +117,7 @@ const getColumns = (data: any) => {
   return columns;
 };
 
-export function EventManagement() {
+export function AllEventManagement() {
   const [data, setEventData] = React.useState<eventType[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -282,8 +261,7 @@ export function EventManagement() {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  
-                  {isLoading ?  <p>Loading events ...</p> : <p>No results.</p>}
+                  {isLoading ? <p>Loading events ...</p> : <p>No results.</p>}
                 </TableCell>
               </TableRow>
             )}

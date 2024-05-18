@@ -1,4 +1,4 @@
-import ChurchGallery from "@/components/shared/ChurchGallery";
+import ChurchGallery from "@/components/pages/gallery/ChurchGallery";
 import React from "react";
 
 const page = () => {

@@ -1,6 +1,6 @@
 import React from "react";
-import { Card } from "../ui/card";
-import { UserAvatar } from "./Avatar";
+import { Card } from "../../ui/card";
+import { UserAvatar } from "../avatar/Avatar";
 
 const TestimonialCard = ({ testimonial }: any) => {
   return (

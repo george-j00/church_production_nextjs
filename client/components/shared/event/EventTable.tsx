@@ -10,12 +10,13 @@ import {
 } from "@/components/ui/table";
 import { fetchAllEvents } from "@/lib/actions/admin.actions";
 import { EventParams } from "@/types";
-import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export function EventTable() {
   const [events, setEventData] = useState<EventParams[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -62,15 +63,15 @@ export function EventTable() {
             </TableHeader>
             <TableBody>
               {events.map((event) => (
-                <TableRow key={event.eventDate} className="h-14">
+                <TableRow key={event?.eventDate} className="h-14">
                   <TableCell className="text-start px-2">
-                    {event.eventDate}
+                    {event?.eventDate}
                   </TableCell>
                   <TableCell className="text-center px-2">
-                    {event.eventLocation}
+                    {event?.eventLocation}
                   </TableCell>
                   <TableCell className="text-end px-2">
-                    {event.eventTheme}
+                    {event?.eventTheme}
                   </TableCell>
                 </TableRow>
               ))}

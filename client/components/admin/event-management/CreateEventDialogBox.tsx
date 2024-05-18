@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface CreateEventFormValues {
+  _id:string;
   eventDate: string;
   eventLocation: string;
   eventTheme: string;
@@ -30,6 +31,7 @@ export function CreateEventDialogBox() {
   const router = useRouter();
   const [error, setError] = useState(false);
   const [formValues, setFormValues] = useState<CreateEventFormValues>({
+    _id:"",
     eventDate: "",
     eventLocation: "",
     eventTheme: "",
@@ -38,7 +40,7 @@ export function CreateEventDialogBox() {
   });
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> 
   ) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };

@@ -1,5 +1,5 @@
 
-import GalleryManagement from '@/components/shared/admin/GalleryManagement'
+import GalleryManagement from '@/components/admin/gallery-management/GalleryManagement'
 import React from 'react'
 
 const Gallery = () => {

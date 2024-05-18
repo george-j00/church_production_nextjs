@@ -19,6 +19,20 @@ export const createEvent = async (eventData: EventParams) => {
     }
   }
 };
+export const AddImages = async (eventData: any ) => {
+  try {
+    console.log('the event image add data ',eventData);
+    return 'hello'
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
+
 export const deleteEvent = async (eventId: string) => {
   try {
    const res =  await axios.delete(`${baseUrl}/delete-event/${eventId}`);

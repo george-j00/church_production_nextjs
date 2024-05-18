@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddImageDialogBox } from './AddImageDialogBox'
+import { AddImageDialogBox } from '../add-image/AddImageDialogBox'
 
 const GalleryManagement = () => {
   return (

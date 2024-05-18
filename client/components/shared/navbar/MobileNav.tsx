@@ -3,7 +3,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Separator } from "../ui/separator";
+import { Separator } from "../../ui/separator";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavService } from "./NavServices";

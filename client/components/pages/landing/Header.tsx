@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -12,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { fetchAllBanners } from "@/lib/actions/user.actions";
+import Navbar from "../../shared/navbar/Navbar";
 
 const Header = () => {
   const carouselImages = [
@@ -40,7 +40,7 @@ const Header = () => {
   return (
     <>
       <div className="relative">
-        <Navbar />
+       
         <Carousel>
           <CarouselContent>
             {/* Map through images and dynamically change background */}

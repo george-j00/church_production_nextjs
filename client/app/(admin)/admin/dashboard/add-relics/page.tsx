@@ -1,4 +1,4 @@
-import { AddRelicDialogBox } from '@/components/shared/admin/AddRelicsDialogBox'
+import { AddRelicDialogBox } from '@/components/admin/add-relics/AddRelicsDialogBox'
 import React from 'react'
 
 const page = () => {

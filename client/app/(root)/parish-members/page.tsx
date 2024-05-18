@@ -1,4 +1,4 @@
-import ParishMembersListPage from '@/components/shared/ParishMembers'
+import ParishMembersListPage from '@/components/pages/parish-memeber/ParishMembers'
 import React from 'react'
 
 const page = () => {

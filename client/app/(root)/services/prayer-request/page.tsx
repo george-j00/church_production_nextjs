@@ -1,4 +1,4 @@
-import PrayerRequestForm from '@/components/shared/PrayerRequestForm'
+import PrayerRequestForm from '@/components/pages/prayer-request/PrayerRequestForm'
 import React from 'react'
 
 const page = () => {

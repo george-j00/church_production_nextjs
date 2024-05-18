@@ -34,7 +34,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Vision and Mission",
-    href: "#VisionMission", // Update with appropriate href
+    href: "/#VisionMission", // Update with appropriate href
     description:
       "Explore our vision and mission for serving our community.",
   },

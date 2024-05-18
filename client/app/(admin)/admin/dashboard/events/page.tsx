@@ -1,12 +1,12 @@
-import { EventManagement } from '@/components/shared/admin/EventManagement'
-import React from 'react'
+import { AllEventManagement } from "@/components/admin/event-management/AllEventManagement";
+import React from "react";
 
-const Event = () => {
+const EventManagement = () => {
   return (
-   <>
-    <EventManagement />
-   </>
-  )
-}
+    <>
+      <AllEventManagement />
+    </>
+  );
+};
 
-export default Event
+export default EventManagement;

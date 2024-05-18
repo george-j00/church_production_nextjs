@@ -1,4 +1,4 @@
-import ProfileNavLinks from "@/components/shared/ProfileNavLinks";
+import ProfileNavLinks from "@/components/admin/ProfileNavLinks";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function ProfileLayout({
@@ -28,6 +28,11 @@ export default function ProfileLayout({
                 <li>
                   <ProfileNavLinks href="/admin/dashboard/events">
                     Event Management
+                  </ProfileNavLinks>
+                </li>
+                <li>
+                  <ProfileNavLinks href="/admin/dashboard/upcoming-events">
+                    Upcoming Events
                   </ProfileNavLinks>
                 </li>
                 <li>
