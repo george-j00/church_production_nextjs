@@ -1,10 +1,11 @@
-import { AllEventManagement } from "@/components/admin/event-management/AllEventManagement";
+
+import { AllEventsManagement } from "@/components/admin/event-management/AllEventManagement";
 import React from "react";
 
 const EventManagement = () => {
   return (
     <>
-      <AllEventManagement />
+      <AllEventsManagement />
     </>
   );
 };

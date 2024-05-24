@@ -39,23 +39,24 @@ import { CreateEventDialogBox } from "./CreateEventDialogBox";
 import { useEffect } from "react";
 import axios from "axios";
 import { DeleteEventDialogBox } from "./DeleteEventDialogBox";
+import { EventType } from "@/types";
+import { EditEventStatusDialogBox } from "./EditEventStatus";
 
-export type eventType = {
-  _id: string;
-  eventDate: Date;
-  eventLocation: string;
-  eventTheme: string;
-  eventTime: string;
-  eventDescription?: string;
-};
 
 const getColumns = (data: any) => {
-  const columns: ColumnDef<eventType>[] = [
+  const columns: ColumnDef<EventType>[] = [
     {
       accessorKey: "eventDate",
-      header: "Event Date",
+      header: "Start Date",
       cell: ({ row }) => (
         <div className="capitalize">{row.getValue("eventDate")}</div>
+      ),
+    },
+    {
+      accessorKey: "endDate",
+      header: " End Date",
+      cell: ({ row }) => (
+        <div className="capitalize">{row.getValue("endDate")}</div>
       ),
     },
     {
@@ -75,9 +76,16 @@ const getColumns = (data: any) => {
 
     {
       accessorKey: "eventTime",
-      header: "Event Time",
+      header: "Start Time",
       cell: ({ row }) => (
         <div className="capitalize">{row.getValue("eventTime")}</div>
+      ),
+    },
+    {
+      accessorKey: "endTime",
+      header: "End Time",
+      cell: ({ row }) => (
+        <div className="capitalize">{row.getValue("endTime")}</div>
       ),
     },
 
@@ -99,12 +107,14 @@ const getColumns = (data: any) => {
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {/* <DropdownMenuItem>Edit event</DropdownMenuItem> */}
-              <DropdownMenuItem className="text-red-500" asChild>
+              <DropdownMenuItem asChild> 
+              <EditEventStatusDialogBox eventId={event?._id}/>
+              </DropdownMenuItem>
+              
+              <DropdownMenuItem className="text-red-500 " asChild>
                 <DeleteEventDialogBox eventId={event?._id} />
               </DropdownMenuItem>
-              <DropdownMenuItem className="text-red-500" asChild>
-                {/* <Banuser userId={user?._id} status={user?.status} /> */}
-              </DropdownMenuItem>
+           
             </DropdownMenuContent>
           </DropdownMenu>
         );
@@ -115,22 +125,20 @@ const getColumns = (data: any) => {
 };
 
 export function UpcomingEventManagement() {
-  const [data, setEventData] = React.useState<eventType[]>([]);
+  const [data, setEventData] = React.useState<EventType[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
       setIsLoading(true);
       try {
-        const data = await fetchAllEvents();
-        const formattedEvents = data.map(
-          (event: { eventDate: string | number | Date }) => {
+        const data = await fetchUpcomingEvents();
+        const formattedEvents = data.map((event: {eventDate: string | number | Date , endDate :  string | number | Date  }) => {
             // Convert eventDate to Date object
-            const formattedDate = new Date(
-              event.eventDate
-            ).toLocaleDateString();
+            const formattedStartDate = new Date(event.eventDate).toLocaleDateString();
+            const formattedEndDate = new Date(event.endDate).toLocaleDateString();
             // Replace the original eventDate with the formattedDate
-            return { ...event, eventDate: formattedDate };
+            return { ...event, eventDate: formattedStartDate , endDate:formattedEndDate };
           }
         );
         setEventData(formattedEvents);
@@ -145,11 +153,12 @@ export function UpcomingEventManagement() {
     fetchUsers();
   }, []);
 
-  const fetchAllEvents = async () => {
-    const res = await axios.get(
-      "https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents"
+  const fetchUpcomingEvents = async () => {
+    const res = await axios.post(
+      // "https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents"
+      "http://localhost:3001/api/admin/getEvents" , {status:'Upcoming'}
     );
-    console.log(res?.data?.events);
+    console.log('these are the upcoming events ',res?.data?.events);
     return res?.data?.events;
   };
   const columns = getColumns(data);

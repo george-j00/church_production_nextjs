@@ -42,6 +42,7 @@ export function AddImageDialogBox() {
   const handleSubmit = async(event: React.FormEvent) => {
     event.preventDefault();
 
+    
     const formData = new FormData();
     if (formValues.imageFile) { // Ensure imageFile is not null
         formData.append('imageFile', formValues.imageFile);

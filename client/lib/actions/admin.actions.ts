@@ -1,12 +1,14 @@
 
 const baseUrl = "https://chuch-backend-nodejs-6.onrender.com/api/admin";
+const localUrl = "http://localhost:3001/api/admin";
 
+import { IEventFormData } from "@/components/admin/event-management/CreateEventDialogBox";
 import { EventParams } from "@/types";
 import axios, { AxiosError } from "axios";
 
-export const createEvent = async (eventData: EventParams) => {
+export const createEvent = async (eventData: IEventFormData) => {
   try {
-    const response = await axios.post(`${baseUrl}/create-event`, {
+    const response = await axios.post(`${localUrl}/create-event`, {
       event: eventData,
     });
     return response
@@ -19,10 +21,29 @@ export const createEvent = async (eventData: EventParams) => {
     }
   }
 };
-export const AddImages = async (eventData: any ) => {
+export const updateEventStatus = async (eventId:string, status:string) => {
   try {
-    console.log('the event image add data ',eventData);
-    return 'hello'
+    const response = await axios.post(`${localUrl}/change-event-status`, {
+      eventId:eventId,
+      status:status,
+    });
+    return response
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
+
+export const AddImages = async (formData : any ) => {
+  try {
+
+    const response = await axios.post(`${localUrl}/add-event-images`,formData);
+    // console.log('response from the addimages',eventData , eventId);
+    return response
   } catch (error) {
     const axiosError = error as AxiosError;
     if (axiosError.response) {
