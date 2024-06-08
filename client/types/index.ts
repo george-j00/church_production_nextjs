@@ -1,6 +1,6 @@
 export type EventParams = {
     _id: string;
-    eventDate: string;
+    eventDate: string;  
     eventLocation: string;
     eventTheme: string;
     eventTime: string;
@@ -10,17 +10,18 @@ export type EventParams = {
 
 export type ParishTeamParams = {
     name:string;
-    role:string;
-    imageUrl:string;
+    houseName:string;
+    image:string;
+    category:string;
 }
 
 export type EventType = {
     _id: string;
-    eventDate: Date;
+    eventDate:  string;
     eventLocation: string;
     eventTheme: string;
     eventTime: string;
-    endDate: Date;
+    endDate: string;
     endTime: string;
     status: string;
     eventDescription?: string;

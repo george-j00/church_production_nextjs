@@ -149,7 +149,7 @@ export function AddEventImage({ eventId }: { eventId: string }) {
   const [formValues, setFormValues] = useState<IEventImages>({
     eventImageFile: null,
   });
-
+  
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
     if (files.length > 5) {

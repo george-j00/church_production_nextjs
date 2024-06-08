@@ -3,9 +3,12 @@ import React from "react";
 
 type ParishTeamsProps = {
   people: ParishTeamParams[];
-  title: string;
+  otherData: {
+    title:string;
+    description:string;
+  };
 };
-const ParishTeam = ({ people, title }: ParishTeamsProps) => {
+const ParishTeam = ({ people, otherData }: ParishTeamsProps) => {
   return (
     <>
       <div className="bg-dotted-pattern bg-cover bg-primary-50">
@@ -13,11 +16,10 @@ const ParishTeam = ({ people, title }: ParishTeamsProps) => {
           <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                {title}
+                {otherData?.title}
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Libero fames augue nisl porttitor nisi, quis. Id ac elit odio
-                vitae elementum enim vitae ullamcorper suspendisse.
+               {otherData?.description}
               </p>
             </div>
             <ul
@@ -29,7 +31,7 @@ const ParishTeam = ({ people, title }: ParishTeamsProps) => {
                   <div className="flex items-center gap-x-6">
                     <img
                       className="h-16 w-16 rounded-full"
-                      src={person.imageUrl}
+                      src={person.image}
                       alt=""
                     />
                     <div>
@@ -37,7 +39,7 @@ const ParishTeam = ({ people, title }: ParishTeamsProps) => {
                         {person.name}
                       </h3>
                       <p className="text-sm font-semibold leading-6 text-indigo-600">
-                        {person.role}
+                        {person.houseName}
                       </p>
                     </div>
                   </div>

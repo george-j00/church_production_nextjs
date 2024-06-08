@@ -1,15 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const AboutUs = () => {
+
+
+  // useEffect(() => {
+    AOS.init();
+  //  }, [])
+
+   
   return (
     <>
       <section
         id="aboutUs"
         className="bg-tiles-pattern bg-primary-50 bg-contain grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 py-8 mx-auto max-w-screen-xl mt-14 mb-14"
+        data-aos="zoom-in"
       >
-        <div className="sm:order-2 order-1 flex justify-center items-center">
+        <div className="sm:order-2 order-1 flex justify-center items-center" >
           <Image
             className="object-cover rounded-lg shadow-md h-full w-full sm:h-[400px]"
             src="/assets/churchImage.JPG"
@@ -18,8 +28,8 @@ const AboutUs = () => {
             height={1000}
           />
         </div>
-        <div className="sm:order-1 order-2 flex flex-col justify-center px-4 sm:px-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4 sm:text-4xl text-center">
+        <div className="sm:order-1 order-2 flex flex-col justify-center px-4 sm:px-8" >
+          <h2 className="text-3xl font-bold text-gray-800 mb-4 sm:text-4xl text-center" >
             About <span className="text-indigo-600">Church</span>
           </h2>
           <p className="text-gray-700 leading-loose text-center">

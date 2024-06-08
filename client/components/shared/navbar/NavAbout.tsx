@@ -26,12 +26,12 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "Discover the rich history and heritage of our church.",
   },
-  {
-    title: "Parish Members List",
-    href: "/parish-members", // Update with appropriate href
-    description:
-      "View the list of members in our parish community.",
-  },
+  // {
+  //   title: "Parish Members List",
+  //   href: "/parish-members", // Update with appropriate href
+  //   description:
+  //     "View the list of members in our parish community.",
+  // },
   {
     title: "Vision and Mission",
     href: "/#VisionMission", // Update with appropriate href

@@ -6,6 +6,23 @@ import { IEventFormData } from "@/components/admin/event-management/CreateEventD
 import { EventParams } from "@/types";
 import axios, { AxiosError } from "axios";
 
+export const adminLogin = async (username : string , password:string) => {
+  try {
+    const response = await axios.post(`${localUrl}/login`, {
+      username: username,
+      password: password,
+    });
+    console.log(response);
+    return response?.data
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
 export const createEvent = async (eventData: IEventFormData) => {
   try {
     const response = await axios.post(`${localUrl}/create-event`, {
@@ -148,6 +165,22 @@ export const addLandingBanner = async (formData : any) => {
     console.log('payload', formData);
     
    const res = await axios.post(`${baseUrl}/add-banner`,formData);
+   console.log(res);
+    return res?.data
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
+export const addParishMembers = async (formData : any) => {
+  try {
+    console.log('payload', formData);
+    
+   const res = await axios.post(`${localUrl}/add-parish-member`,formData);
    console.log(res);
     return res?.data
   } catch (error) {

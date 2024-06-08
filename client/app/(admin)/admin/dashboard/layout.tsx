@@ -41,6 +41,11 @@ export default function ProfileLayout({
                   </ProfileNavLinks>
                 </li>
                 <li>
+                  <ProfileNavLinks href="/admin/dashboard/parish">
+                    Parish
+                  </ProfileNavLinks>
+                </li>
+                <li>
                   <ProfileNavLinks href="/admin/dashboard/gallery">
                     Add Images{" "}
                   </ProfileNavLinks>

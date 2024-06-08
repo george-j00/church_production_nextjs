@@ -1,4 +1,5 @@
 const baseUrl = "https://chuch-backend-nodejs-6.onrender.com/api/user";
+const localUrl = "http://localhost:3001/api/user";
 import axios, { AxiosError } from "axios";
 
  type PrayerRequestParams = {
@@ -68,3 +69,31 @@ export const fetchAllBanners = async () => {
       }
     }
   };
+
+export const FetchEventById = async (eventId:string) => {
+    try {
+      const response = await axios.post(`${localUrl}/fetchEventById` , {eventId:eventId});
+        return response?.data?.event;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response) {
+        // const status = axiosError.response.status;
+        // return status
+        console.log("axios error ", axiosError);
+      }
+    }
+  };
+export const fetchParishMembers = async () => {
+    try {
+      const response = await axios.get(`${localUrl}/fetchParishMembers`);
+        return response?.data?.members;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response) {
+        // const status = axiosError.response.status;
+        // return status
+        console.log("axios error ", axiosError);
+      }
+    }
+  };
+
