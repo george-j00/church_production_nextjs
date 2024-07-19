@@ -18,9 +18,9 @@ const AdminLogin: React.FC = () => {
       console.log("Login successful:", response);
       if (response.token) {
         setCookie(response.token);
-        setTimeout(() => {
-          router.push("/admin/dashboard");
-        }, 100); // delay for 100ms
+        // setTimeout(() => {
+          router.replace("/admin/dashboard");
+        // }, 100); // delay for 100ms
       } else {
         setError(response.message);
       }
