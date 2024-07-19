@@ -1,4 +1,4 @@
-const baseUrl = "https://chuch-backend-nodejs-6.onrender.com/api/user";
+const baseUrl = "https://chuch-backend-nodejs.onrender.com/api/user";
 const localUrl = "http://localhost:3001/api/user";
 import axios, { AxiosError } from "axios";
 
@@ -72,7 +72,7 @@ export const fetchAllBanners = async () => {
 
 export const FetchEventById = async (eventId:string) => {
     try {
-      const response = await axios.post(`${localUrl}/fetchEventById` , {eventId:eventId});
+      const response = await axios.post(`${baseUrl}/fetchEventById` , {eventId:eventId});
         return response?.data?.event;
     } catch (error) {
       const axiosError = error as AxiosError;
@@ -85,7 +85,7 @@ export const FetchEventById = async (eventId:string) => {
   };
 export const fetchParishMembers = async () => {
     try {
-      const response = await axios.get(`${localUrl}/fetchParishMembers`);
+      const response = await axios.get(`${baseUrl}/fetchParishMembers`);
         return response?.data?.members;
     } catch (error) {
       const axiosError = error as AxiosError;

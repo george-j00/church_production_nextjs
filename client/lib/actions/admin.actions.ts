@@ -8,7 +8,7 @@ import axios, { AxiosError } from "axios";
 
 export const adminLogin = async (username : string , password:string) => {
   try {
-    const response = await axios.post(`${localUrl}/login`, {
+    const response = await axios.post(`${baseUrl}/login`, {
       username: username,
       password: password,
     });
@@ -25,7 +25,7 @@ export const adminLogin = async (username : string , password:string) => {
 };
 export const createEvent = async (eventData: any) => {
   try {
-    const response = await axios.post(`${localUrl}/create-event`, {
+    const response = await axios.post(`${baseUrl}/create-event`, {
       event: eventData,
     });
     return response
@@ -40,7 +40,7 @@ export const createEvent = async (eventData: any) => {
 };
 export const updateEventStatus = async (eventId:string, status:string) => {
   try {
-    const response = await axios.post(`${localUrl}/change-event-status`, {
+    const response = await axios.post(`${baseUrl}/change-event-status`, {
       eventId:eventId,
       status:status,
     });
@@ -58,7 +58,7 @@ export const updateEventStatus = async (eventId:string, status:string) => {
 export const AddImages = async (formData : any ) => {
   try {
 
-    const response = await axios.post(`${localUrl}/add-event-images`,formData);
+    const response = await axios.post(`${baseUrl}/add-event-images`,formData);
     // console.log('response from the addimages',eventData , eventId);
     return response
   } catch (error) {
@@ -87,7 +87,7 @@ export const deleteEvent = async (eventId: string) => {
 
 export const deleteMember = async (memberId: string) => {
   try {
-   const res =  await axios.delete(`${localUrl}/delete-member/${memberId}`);
+   const res =  await axios.delete(`${baseUrl}/delete-member/${memberId}`);
     return res?.data?.message
   } catch (error) {
     const axiosError = error as AxiosError;
@@ -194,7 +194,7 @@ export const addParishMembers = async (formData : any) => {
   try {
     console.log('payload', formData);
     
-   const res = await axios.post(`${localUrl}/add-parish-member`,formData);
+   const res = await axios.post(`${baseUrl}/add-parish-member`,formData);
    console.log(res);
     return res?.data
   } catch (error) {
