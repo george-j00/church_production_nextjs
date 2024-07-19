@@ -17,10 +17,10 @@ const AdminLogin: React.FC = () => {
       const response = await adminLogin(username, password);
       console.log("Login successful:", response);
       if (response.token) {
-        setCookie(response.token);
-        // setTimeout(() => {
+        setTimeout(() => {
           router.replace("/admin/dashboard");
-        // }, 100); // delay for 100ms
+        }, 100); // delay for 100ms
+        setCookie(response.token);
       } else {
         setError(response.message);
       }
