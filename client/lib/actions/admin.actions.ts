@@ -23,7 +23,7 @@ export const adminLogin = async (username : string , password:string) => {
     }
   }
 };
-export const createEvent = async (eventData: IEventFormData) => {
+export const createEvent = async (eventData: any) => {
   try {
     const response = await axios.post(`${localUrl}/create-event`, {
       event: eventData,

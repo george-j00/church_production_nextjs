@@ -30,7 +30,7 @@ const EventView = ({ params: { eventId } }: EventParam) => {
         setEvent(formattedEvent);
       }
     fetchEvents();
-  }, [])
+  }, [eventId])
   
 
   return (
