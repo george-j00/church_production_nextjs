@@ -23,7 +23,7 @@ export function EventTable() {
       setIsLoading(true);
       try {
         const data = await fetchAllEvents();
-        const formattedEvents = data.map(
+        const formattedEvents = data?.map(
           (event: { eventDate: string | number | Date }) => {
             // Convert eventDate to Date object
             const formattedDate = new Date(

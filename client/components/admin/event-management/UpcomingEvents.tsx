@@ -133,7 +133,7 @@ export function UpcomingEventManagement() {
       setIsLoading(true);
       try {
         const data = await fetchUpcomingEvents();
-        const formattedEvents = data.map((event: {eventDate: string | number | Date , endDate :  string | number | Date  }) => {
+        const formattedEvents = data?.map((event: {eventDate: string | number | Date , endDate :  string | number | Date  }) => {
             // Convert eventDate to Date object
             const formattedStartDate = new Date(event.eventDate).toLocaleDateString();
             const formattedEndDate = new Date(event.endDate).toLocaleDateString();

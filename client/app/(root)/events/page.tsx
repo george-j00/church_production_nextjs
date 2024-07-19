@@ -15,7 +15,7 @@ const AllEvents = () => {
     const fetchEvents = async () => {
       const events = await fetchAllEvents();
 
-      const formattedEvents = events.map(
+      const formattedEvents = events?.map(
         (event: {
           eventDate: string | number | Date;
           endDate: string | number | Date;
