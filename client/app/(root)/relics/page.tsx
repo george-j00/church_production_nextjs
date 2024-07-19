@@ -1,39 +1,55 @@
 "use client";
 
-import { fetchAllRelics } from "@/lib/actions/user.actions";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Relics = () => {
-  const [relics, setAllRelics] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchRelics = async () => {
-      setIsLoading(true);
-      try {
-        const data = await fetchAllRelics();
-        setAllRelics(data);
-      } catch (error) {
-        console.error("Error fetching relics:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchRelics();
-  }, []);
+  const relics = [
+    {
+      image: "/assets/relics/Relic1.jpg",
+      name: "St. Mary",
+      title: "Girdle of St. Mary",
+      detail:
+        "The relics of St. Mary are not only historical artifacts but also spiritual treasures for many Christians. They are believed to convey Mary's presence and intercessory power, providing comfort, inspiration, and miracles to the faithful. These relics are often housed in ornate reliquaries and displayed during important liturgical feasts, particularly on Nativity of the Blessed Virgin Mary (September 8).",
+      description:
+        'Also known as the "Holy Belt," this is a belt or girdle said to have belonged to Mary',
+      significance:
+        "Symbolizes Mary's maternal protection and her role as a mediator between humanity and God.",
+    },
+    {
+      image: "/assets/relics/Relic2.jpg",
+      name: "St. Ignatius Elias III",
+      title: "Iconographic Relics",
+      detail:
+        "The relics of St. Mary are not only historical artifacts but also spiritual treasures for many Christians. They are believed to convey Mary's presence and intercessory power, providing comfort, inspiration, and miracles to the faithful. These relics are often housed in ornate reliquaries and displayed during important liturgical feasts, particularly on Nativity of the Blessed Virgin Mary (September 8).",
+      description:
+        'Also known as the "Holy Belt," this is a belt or girdle said to have belonged to Mary',
+      significance:
+        "Symbolizes Mary's maternal protection and her role as a mediator between humanity and God.",
+    },
+    {
+      image: "/assets/relics/Relic3.jpg",
+      name: "St. Gregorios of Parumala",
+      title: "Iconographic Relics",
+      detail:
+        "The relics of St. Mary are not only historical artifacts but also spiritual treasures for many Christians. They are believed to convey Mary's presence and intercessory power, providing comfort, inspiration, and miracles to the faithful. These relics are often housed in ornate reliquaries and displayed during important liturgical feasts, particularly on Nativity of the Blessed Virgin Mary (September 8).",
+      description:
+        'Also known as the "Holy Belt," this is a belt or girdle said to have belonged to Mary',
+      significance:
+        "Symbolizes Mary's maternal protection and her role as a mediator between humanity and God.",
+    },
+  ];
 
   // State to manage the visibility of the modal
   const [modalOpen, setModalOpen] = useState(false);
   // State to store the URL of the selected image
   const [selectedImage, setSelectedImage] = useState({
     description: "",
-    imageUrl: "",
+    image: "",
   });
 
   // Function to handle click on an image and open the modal
-  const handleImageClick = (image: any) => {
+  const handleImageClick = (image : any) => {
     setSelectedImage(image);
     setModalOpen(true);
   };
@@ -42,7 +58,7 @@ const Relics = () => {
   const closeModal = () => {
     setSelectedImage({
       description: "",
-      imageUrl: "",
+      image: "",
     });
     setModalOpen(false);
   };
@@ -52,27 +68,35 @@ const Relics = () => {
       <h2 className="text-3xl font-bold text-center mb-6 text-indigo-500">
         Relics
       </h2>
-      <p className="text-center  mb-10">
+      <p className="text-center mb-10">
         In the church, relics are the mortal remains of a saint, or any object
         that has been in contact with the saint. The term relic comes from the
         Latin word reliquiae, which means remains.
       </p>
 
-      <div className="grid md:grid-cols-3 gap-6 grid-cols-2">
+      <div className="grid md:grid-cols-3 gap-6 grid-cols-1">
         {relics?.map((relic, index) => (
-          <div key={index} className="flex flex-col md:flex-row items-justify">
-            <div className="overflow-hidden rounded-lg shadow-md md:w-1/3">
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center"
+          >
+            <div className="overflow-hidden rounded-lg shadow-md w-72 h-72">
               <Image
-                width={1000}
-                height={1000}
-                src={relic?.imageUrl}
+                width={300} // Set the width to 300
+                height={300} // Set the height to 300
+                src={relic?.image}
                 alt={`Church Image ${index + 1}`}
-                className="w-full h-auto cursor-pointer"
+                className="w-full h-full object-cover cursor-pointer"
                 onClick={() => handleImageClick(relic)}
               />
             </div>
-            <div className="md:pl-4 mt-4 md:mt-0 md:w-2/3">
-              <p className="text-gray-600 text-sm">{relic?.description}</p>
+
+            <div className="md:pl-4 mt-4 text-justify">
+              <h3 className="text-lg font-bold mb-2">{relic?.name}</h3>
+              <h4 className="text-indigo-500 font-bold mb-2">{relic?.title}</h4>
+              <p className="text-gray-600 mb-2">{relic?.detail}</p>
+              <p className="text-gray-600 mb-2">{relic?.description}</p>
+              <p className="text-gray-600">{relic?.significance}</p>
             </div>
           </div>
         ))}
@@ -89,9 +113,9 @@ const Relics = () => {
               close &times;
             </button>
             <Image
-              height={500}
-              width={500}
-              src={selectedImage?.imageUrl}
+              width={300} // Set the width to 300
+              height={300} // Set the height to 300
+              src={selectedImage?.image}
               alt="Enlarged Image"
               className="max-w-full max-h-full"
             />

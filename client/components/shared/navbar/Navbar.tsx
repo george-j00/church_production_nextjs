@@ -51,7 +51,7 @@ const Navbar = () => {
             <Link href="/relics">Relics</Link>
           </li>
           <li className="mt-1">
-            <Link href="/gallery">Gallery</Link>
+            <Link href="/events">Events</Link>
           </li>
           <li
             className="mt-1 cursor-pointer"

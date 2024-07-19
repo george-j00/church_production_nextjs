@@ -1,11 +1,23 @@
+
+import { cookies } from 'next/headers'
+
 import ProfileNavLinks from "@/components/admin/ProfileNavLinks";
+import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/toaster";
+import { getCookie } from "@/lib/auth";
+import Logout from '@/components/admin/Logout';
 
 export default function ProfileLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+ 
+  const token = cookies().get('Jwt_login_token')?.value   
+
+  // const deleteCookie = async () => {
+  //   cookies().delete('Jwt_login_token')
+  // }
   return (
     <>
       <section className=" bg-black min-h-[300px] h-screen pt-[50px]">
@@ -42,10 +54,15 @@ export default function ProfileLayout({
                 </li>
                 <li>
                   <ProfileNavLinks href="/admin/dashboard/parish">
-                    Parish
+                    Add Member
                   </ProfileNavLinks>
                 </li>
                 <li>
+                  <ProfileNavLinks href="/admin/dashboard/parish-members">
+                    Parish Management
+                  </ProfileNavLinks>
+                </li>
+                {/* <li>
                   <ProfileNavLinks href="/admin/dashboard/gallery">
                     Add Images{" "}
                   </ProfileNavLinks>
@@ -54,12 +71,15 @@ export default function ProfileLayout({
                   <ProfileNavLinks href="/admin/dashboard/add-relics">
                     Add Relics
                   </ProfileNavLinks>
-                </li>
+                </li> */}
                 <li>
                   <ProfileNavLinks href="/admin/dashboard/banner">
                     Banner management
                   </ProfileNavLinks>
                 </li>
+                { token &&
+                  <Logout />
+                }
               </ul>
             </nav>
           </aside>

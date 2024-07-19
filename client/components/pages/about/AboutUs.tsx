@@ -1,23 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
 const AboutUs = () => {
 
-
-  // useEffect(() => {
-    AOS.init();
-  //  }, [])
-
-   
   return (
     <>
       <section
         id="aboutUs"
         className="bg-tiles-pattern bg-primary-50 bg-contain grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 py-8 mx-auto max-w-screen-xl mt-14 mb-14"
-        data-aos="zoom-in"
       >
         <div className="sm:order-2 order-1 flex justify-center items-center" >
           <Image

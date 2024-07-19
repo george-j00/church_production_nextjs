@@ -84,6 +84,20 @@ export const deleteEvent = async (eventId: string) => {
     }
   }
 };
+
+export const deleteMember = async (memberId: string) => {
+  try {
+   const res =  await axios.delete(`${localUrl}/delete-member/${memberId}`);
+    return res?.data?.message
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
 export const deletePrayerRequest = async (prayerRequestId: string) => {
   try {
    const res =  await axios.delete(`${baseUrl}/delete-prayer-request/${prayerRequestId}`);
@@ -192,3 +206,4 @@ export const addParishMembers = async (formData : any) => {
     }
   }
 };
+

@@ -29,10 +29,7 @@ const Parish = () => {
           variant: 'primary',
           title: 'Member added successfully',
         });
-        setName('');
-        setHouseName('');
-        setImage(null);
-        setCategory('');
+        window.location.reload();
       }
     } catch (error) {
       console.error('Error submitting form', error);
@@ -86,7 +83,7 @@ const Parish = () => {
             <option value="spiritual-leaders">Spiritual Leaders</option>
             <option value="parish-council">Parish Council</option>
             <option value="eminent-personalities">Eminent Personalities</option>
-            <option value="parish-members">Parish Members</option>
+            {/* <option value="parish-members">Parish Members</option> */}
           </select>
         </div>
         {category !== 'parish-members' && (

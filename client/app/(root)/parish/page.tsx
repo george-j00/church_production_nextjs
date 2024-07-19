@@ -21,33 +21,6 @@ const ParishPage = () => {
       description:"Our church is privileged to be associated with several eminent personalities whose remarkable achievements extend far beyond our community."
     }
 
-    // const people : ParishTeamParams[] = [
-    //     {
-    //       name: 'Leslie Alexander',
-    //       role: 'Co-Founder / CEO',
-    //       imageUrl:
-    //         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    //     },
-    //     {
-    //       name: 'Leslie Alexander',
-    //       role: 'Co-Founder / CEO',
-    //       imageUrl:
-    //         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    //     },
-    //     {
-    //       name: 'Leslie Alexander',
-    //       role: 'Co-Founder / CEO',
-    //       imageUrl:
-    //         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    //     },
-    //     {
-    //       name: 'Leslie Alexander',
-    //       role: 'Co-Founder / CEO',
-    //       imageUrl:
-    //         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    //     },
-    // ]
-
     const [parishMembers , setParishMembers ] = useState<ParishTeamParams[]>();
 
 
@@ -64,7 +37,7 @@ const ParishPage = () => {
     const spiritualLeadersList = parishMembers?.filter(member => member.category === 'spiritual-leaders')
     const leadershipTeamList = parishMembers?.filter(member => member.category === 'parish-council')
     const eminenetPersonsList = parishMembers?.filter(member => member.category === 'eminent-personalities')
-    const parishMembersList = parishMembers?.filter(member => member.category === 'parish-members')
+    // const parishMembersList = parishMembers?.filter(member => member.category === 'parish-members')
     
 
       
@@ -77,12 +50,12 @@ const ParishPage = () => {
      {spiritualLeadersList && <ParishTeam people={spiritualLeadersList} otherData= {spiritualLeaders}/>} 
      {leadershipTeamList && <ParishTeam people={leadershipTeamList} otherData= {leadershipTeam}/>} 
      {eminenetPersonsList && <ParishTeam people={eminenetPersonsList}  otherData= {eminenetPersons}/>} 
-      <div className="wrapper flex flex-col mt-14">
+      {/* <div className="wrapper flex flex-col mt-14">
         <h1 className="text-3xl text-center font-bold">Parish <span className="text-indigo-600">Members</span> </h1>
         <div className='mt-10'>
             {parishMembersList && <ParishMembersListPage people={parishMembersList} />}
         </div>
-      </div>
+      </div> */}
     </div>
     </>
   )

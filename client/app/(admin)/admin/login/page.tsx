@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
 import { adminLogin } from "@/lib/actions/admin.actions";
 import { useRouter } from "next/navigation";
+import { setCookie } from "@/lib/auth";
 
 const AdminLogin: React.FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -10,24 +10,25 @@ const AdminLogin: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
-  
-
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setError(null); 
+    setError(null);
     try {
       const response = await adminLogin(username, password);
-      console.log('Login successful:', response);
-      if(response.token)
-      {
-        router.push('/admin/dashboard');
-      }else{
+      console.log("Login successful:", response);
+      if (response.token) {
+        setCookie(response.token);
+        setTimeout(() => {
+          router.push("/admin/dashboard");
+        }, 100); // delay for 100ms
+      } else {
         setError(response.message);
       }
-      
     } catch (error: any) {
-      setError(error.response?.data?.message || 'An error occurred during login.');
-      console.error('Login error:', error);
+      setError(
+        error.response?.data?.message || "An error occurred during login."
+      );
+      console.error("Login error:", error);
     }
   };
 
@@ -35,6 +36,8 @@ const AdminLogin: React.FC = () => {
     <div className="container h-screen flex justify-center items-center">
       <div className="py-5 px-10 rounded-lg shadow-lg bg-white">
         <form className="w-60" onSubmit={handleSubmit}>
+          <h1 className="text-center font-bold text-xl p-5">Admin login</h1>
+
           <div className="p-2">
             <label htmlFor="username">Username</label>
             <br />

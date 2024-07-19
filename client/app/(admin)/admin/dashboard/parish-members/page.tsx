@@ -17,7 +17,6 @@ import {
 import { ChevronDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -35,82 +34,43 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { CreateEventDialogBox } from "./CreateEventDialogBox";
 import { useEffect } from "react";
 import axios from "axios";
-import { DeleteEventDialogBox } from "./DeleteEventDialogBox";
 import { EventType } from "@/types";
-import { EditEventStatusDialogBox } from "./EditEventStatus";
-import { AddEventImage } from "./add-event/page";
+import { Input } from "@/components/ui/input";
+import { DeleteMemberDialog } from "@/components/admin/parishMembers/DeleteMemberDialog";
 
 
 const getColumns = (data: any) => {
   const columns: ColumnDef<EventType>[] = [
     {
-      accessorKey: "eventDate",
-      header: "Start Date",
+      accessorKey: "name",
+      header: "Name",
       cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("eventDate")}</div>
+        <div className="capitalize">{row.getValue("name")}</div>
       ),
     },
     {
-      accessorKey: "endDate",
-      header: " End Date",
+      accessorKey: "houseName",
+      header: "House Name",
       cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("endDate")}</div>
+        <div className="capitalize">{row.getValue("houseName")}</div>
       ),
     },
     {
-      accessorKey: "eventLocation",
-      header: "Event Locatation",
+      accessorKey: "category",
+      header: "Category",
       cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("eventLocation")}</div>
+        <div className="capitalize">{row.getValue("category")}</div>
       ),
-    },
-    {
-      accessorKey: "eventTheme",
-      header: "Event Theme",
-      cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("eventTheme")}</div>
-      ),
-    },
-
-    {
-      accessorKey: "eventTime",
-      header: "Start Time",
-      cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("eventTime")}</div>
-      ),
-    },
-    {
-      accessorKey: "endTime",
-      header: "End Time",
-      cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("endTime")}</div>
-      ),
-    },
-    {
-      accessorKey: "status",
-      header: "Status",
-      cell: ({ row }) => (
-
-              row.getValue("status") === 'Completed' ?
-        <div className="capitalize text-green-500">{row.getValue("status")}</div>
-
-        : row.getValue("status") === 'Ongoing' ? 
-        <div className="capitalize text-yellow-500">{row.getValue("status")}</div>
-        : null 
-        )
     },
 
     {
       id: "actions",
       enableHiding: false,
       cell: ({ row }) => {
-        const event = row.original;
+        const parishMember = row.original;
 
-        console.log('the event in the eve management ',event);
-        
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -122,23 +82,9 @@ const getColumns = (data: any) => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              {/* <DropdownMenuItem>Edit event</DropdownMenuItem> */}
-              
-              <div className="flex flex-col gap-1">
-              <DropdownMenuItem className="text-red-500 " asChild>
-                <AddEventImage eventId={event?._id} />
-              </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <DeleteEventDialogBox eventId={event?._id} />
+                <DeleteMemberDialog memberId={parishMember?._id} />
               </DropdownMenuItem>
-              {
-                event?.status === "Ongoing" && (
-                  <DropdownMenuItem asChild> 
-                  <EditEventStatusDialogBox eventId={event?._id}/>
-                  </DropdownMenuItem>
-                )
-              }
-              </div>
             </DropdownMenuContent>
           </DropdownMenu>
         );
@@ -148,42 +94,32 @@ const getColumns = (data: any) => {
   return columns;
 };
 
-export function AllEventsManagement() {
-  const [data, setEventData] = React.useState<EventType[]>([]);
+const ParishList = () => {
+  const [data, setParishData] = React.useState<any>([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchMembers = async () => {
       setIsLoading(true);
       try {
-        const data = await fetchUpcomingEvents();
-        const formattedEvents = data.map((event: {eventDate: string | number | Date , endDate :  string | number | Date  }) => {
-            // Convert eventDate to Date object
-            const formattedStartDate = new Date(event.eventDate).toLocaleDateString();
-            const formattedEndDate = new Date(event.endDate).toLocaleDateString();
-            // Replace the original eventDate with the formattedDate
-            return { ...event, eventDate: formattedStartDate , endDate:formattedEndDate };
-          }
-        );
-        setEventData(formattedEvents);
+        const data = await fetchParishMembers();
+        setParishData(data);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching events:", error);
+        console.error("Error fetching parish members list:", error);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchUsers();
+    fetchMembers();
   }, []);
 
-  const fetchUpcomingEvents = async () => {
-    const res = await axios.post(
-      // "https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents"
-      "http://localhost:3001/api/admin/getEvents" , {status:'All'}
+  const fetchParishMembers = async () => {
+    const res = await axios.get(
+      "http://localhost:3001/api/admin/get-parish-members"
     );
-    console.log('these are the upcoming events ',res?.data?.events);
-    return res?.data?.events;
+    return res?.data?.memebersList;
   };
   const columns = getColumns(data);
 
@@ -217,6 +153,17 @@ export function AllEventsManagement() {
   return (
     <div className="w-full">
       <div className="flex items-center py-4 gap-5">
+        <div className="flex items-center py-4">
+          <Input
+            placeholder="Filter name"
+            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+            onChange={(event) =>
+              table.getColumn("name")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+        </div>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto bg-black">
@@ -243,8 +190,6 @@ export function AllEventsManagement() {
               })}
           </DropdownMenuContent>
         </DropdownMenu>
-
-      
       </div>
       <div className="rounded-md border">
         <Table>
@@ -290,8 +235,7 @@ export function AllEventsManagement() {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  
-                  {isLoading ?  <p>Loading events ...</p> : <p>No results.</p>}
+                  {isLoading ? <p>Loading Members list ...</p> : <p>No results.</p>}
                 </TableCell>
               </TableRow>
             )}
@@ -324,4 +268,6 @@ export function AllEventsManagement() {
       </div>
     </div>
   );
-}
+};
+
+export default ParishList;

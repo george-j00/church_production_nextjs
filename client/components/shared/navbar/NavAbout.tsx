@@ -16,7 +16,7 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "About Us",
-    href: "#aboutUs", // Update with appropriate href
+    href: "/#aboutUs", // Update with appropriate href
     description:
       "Learn more about our church and its mission.",
   },
@@ -26,12 +26,12 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "Discover the rich history and heritage of our church.",
   },
-  // {
-  //   title: "Parish Members List",
-  //   href: "/parish-members", // Update with appropriate href
-  //   description:
-  //     "View the list of members in our parish community.",
-  // },
+  {
+    title: "Eternal Rest",
+    href: "/entombed", // Update with appropriate href
+    description:
+      "Entombed Inside the Church.",
+  },
   {
     title: "Vision and Mission",
     href: "/#VisionMission", // Update with appropriate href

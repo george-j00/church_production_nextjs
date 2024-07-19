@@ -35,7 +35,7 @@ const MobileNav = () => {
               </li>
               
               <li>
-                <Link href="/gallery">Gallery</Link>
+                <Link href="/events">Events</Link>
               </li>
               <li>
                 <Link href="#contactUs">Contacts</Link>

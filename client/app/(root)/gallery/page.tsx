@@ -1,10 +1,11 @@
-import ChurchGallery from "@/components/pages/gallery/ChurchGallery";
+
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <ChurchGallery />
+      Page not found
+      {/* <ChurchGallery /> */}
     </div>
   );
 };
