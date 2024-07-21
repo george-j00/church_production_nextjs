@@ -39,6 +39,7 @@ import axios from "axios";
 import { EventType } from "@/types";
 import { Input } from "@/components/ui/input";
 import { DeleteMemberDialog } from "@/components/admin/parishMembers/DeleteMemberDialog";
+import { fetchParishMembers } from "@/lib/actions/user.actions";
 
 
 const getColumns = (data: any) => {
@@ -115,12 +116,6 @@ const ParishList = () => {
     fetchMembers();
   }, []);
 
-  const fetchParishMembers = async () => {
-    const res = await axios.get(
-      "http://localhost:3001/api/admin/get-parish-members"
-    );
-    return res?.data?.memebersList;
-  };
   const columns = getColumns(data);
 
   const [sorting, setSorting] = React.useState<SortingState>([]);

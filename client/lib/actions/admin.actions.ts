@@ -207,3 +207,9 @@ export const addParishMembers = async (formData : any) => {
   }
 };
 
+const fetchParishMembers = async () => {
+  const res = await axios.get(
+    `${baseUrl}/get-parish-members`
+  );
+  return res?.data?.memebersList;
+};
