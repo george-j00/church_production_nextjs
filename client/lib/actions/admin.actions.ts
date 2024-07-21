@@ -143,9 +143,9 @@ export const addImage = async (formData : any) => {
   }
 };
 
-export const fetchAllEvents = async () => {
+export const fetchAllEvents = async (status: string) => {
   try {
-    const response = await axios.get(`${baseUrl}/getAllEvents`);
+    const response = await axios.post(`${baseUrl}/getEvents`, {status : status});
     return response?.data?.events;
   } catch (error) {
     const axiosError = error as AxiosError;

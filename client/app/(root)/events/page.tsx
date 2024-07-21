@@ -13,7 +13,7 @@ const AllEvents = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const events = await fetchAllEvents();
+      const events = await fetchAllEvents('All');
 
       const formattedEvents = events?.map(
         (event: {

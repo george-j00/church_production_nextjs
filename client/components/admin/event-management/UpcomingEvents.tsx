@@ -41,6 +41,7 @@ import axios from "axios";
 import { DeleteEventDialogBox } from "./DeleteEventDialogBox";
 import { EventType } from "@/types";
 import { EditEventStatusDialogBox } from "./EditEventStatus";
+import { fetchAllEvents } from "@/lib/actions/admin.actions";
 
 
 const getColumns = (data: any) => {
@@ -132,7 +133,7 @@ export function UpcomingEventManagement() {
     const fetchUsers = async () => {
       setIsLoading(true);
       try {
-        const data = await fetchUpcomingEvents();
+        const data = await fetchAllEvents('Upcoming');
         const formattedEvents = data?.map((event: {eventDate: string | number | Date , endDate :  string | number | Date  }) => {
             // Convert eventDate to Date object
             const formattedStartDate = new Date(event.eventDate).toLocaleDateString();
@@ -153,13 +154,13 @@ export function UpcomingEventManagement() {
     fetchUsers();
   }, []);
 
-  const fetchUpcomingEvents = async () => {
-    const res = await axios.post(
-      "https://chuch-backend-nodejs.onrender.com/api/admin/getEvents" , {status:'Upcoming'}
-    );
-    console.log('these are the upcoming events ',res?.data?.events);
-    return res?.data?.events;
-  };
+  // const fetchUpcomingEvents = async () => {
+  //   const res = await axios.post(
+  //     "https://chuch-backend-nodejs.onrender.com/api/admin/getEvents" , {status:'Upcoming'}
+  //   );
+  //   console.log('these are the upcoming events ',res?.data?.events);
+  //   return res?.data?.events;
+  // };
   const columns = getColumns(data);
 
   const [sorting, setSorting] = React.useState<SortingState>([]);
