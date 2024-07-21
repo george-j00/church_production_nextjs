@@ -155,8 +155,7 @@ export function UpcomingEventManagement() {
 
   const fetchUpcomingEvents = async () => {
     const res = await axios.post(
-      // "https://chuch-backend-nodejs-6.onrender.com/api/admin/getAllEvents"
-      "http://localhost:3001/api/admin/getEvents" , {status:'Upcoming'}
+      "https://chuch-backend-nodejs.onrender.com/api/admin/getEvents" , {status:'Upcoming'}
     );
     console.log('these are the upcoming events ',res?.data?.events);
     return res?.data?.events;

@@ -44,7 +44,7 @@ const Header = () => {
         <Carousel>
           <CarouselContent>
             {/* Map through images and dynamically change background */}
-            {carouselImages.map((banner, index) => (
+            {carouselImages?.map((banner, index) => (
               <CarouselItem key={index}>
                 <div className="relative ">
                   <div

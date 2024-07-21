@@ -1,5 +1,5 @@
 
-const baseUrl = "https://chuch-backend-nodejs-6.onrender.com/api/admin";
+const baseUrl = "https://chuch-backend-nodejs.onrender.com/api/admin";
 const localUrl = "http://localhost:3001/api/admin";
 
 import { IEventFormData } from "@/components/admin/event-management/CreateEventDialogBox";
