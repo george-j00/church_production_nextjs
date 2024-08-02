@@ -3,6 +3,7 @@ import { prayerRequest } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useToast } from "../../ui/use-toast";
+import { LoadingButton } from "@/components/ui/loading-button"
 
 const prayerRequestTypes = [
   { value: "intercession-prayer", label: "Intercession Prayer" },
@@ -12,6 +13,7 @@ const prayerRequestTypes = [
 ];
 
 const PrayerRequestForm = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
   const [formData, setFormData] = useState({
     name: "",
@@ -61,7 +63,9 @@ const PrayerRequestForm = () => {
     const isValid = validateForm();
     if (isValid) {
       console.log('Form submitted:', formData);
+      setIsLoading(true)
       const res = await prayerRequest(formData);
+      setIsLoading(false)
       if (res) {
         setFormData({
           name: "",
@@ -225,12 +229,14 @@ const PrayerRequestForm = () => {
                 Fill all the form fields{" "}
               </p>
             )}
-            <button
-              type="submit"
-              className="bg-blue-500 mt-5 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-            >
-              Submit
-            </button>
+            <LoadingButton
+            type="submit"
+            size="lg"
+            loading={isLoading}
+            className="bg-blue-500 mt-5 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+          >
+            Submit prayer request
+          </LoadingButton>
           </div>
         </form>
       </div>

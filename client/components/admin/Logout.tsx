@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation"
     const router = useRouter()
     const handleLogout = async () => {
         await axios.post(`/api/logout`)
-        router.push('/admin/login')
+        router.replace('/admin/login')
     }
     return (
         <>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Label } from "@/components/ui/label";
+import { LoadingButton } from "@/components/ui/loading-button";
 import { useToast } from "@/components/ui/use-toast";
 import { addLandingBanner } from "@/lib/actions/admin.actions";
 import React, { useState } from "react";
@@ -12,8 +13,8 @@ interface IBanner {
 }
 
 const Banner = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast();
-  const [disabled, setDisabled] = useState(false);
   const [formValues, setFormValues] = useState<IBanner>({
     bannerFile: null,
     quote: "",
@@ -41,15 +42,15 @@ const Banner = () => {
     // Handle form submission here, for example:
     console.log("Create Banner :", formData);
     // Perform image upload logic here
-    setDisabled(true);
+    setIsLoading(true)
     const res = await addLandingBanner(formData);
+    setIsLoading(false)
 
     if (res) {
       toast({
         variant: "primary",
         title: "Banner added successfully",
       });
-      setDisabled(false);
       setFormValues({
         quote: "",
         author: "",
@@ -117,13 +118,22 @@ const Banner = () => {
             </>
           )}
         </div>
-        <button
+        {/* <button
           type="submit"
           className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"
           disabled={disabled}
         >
           Submit
-        </button>
+        </button> */}
+        <LoadingButton
+            type="submit"
+            size="lg"
+            loading={isLoading}
+            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"
+          >
+            Add banner
+          </LoadingButton>
+
       </form>
     </div>
   );

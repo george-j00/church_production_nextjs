@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { addParishMembers } from '@/lib/actions/admin.actions';
 import { useToast } from '@/components/ui/use-toast';
+import { LoadingButton } from '@/components/ui/loading-button';
 
 const Parish = () => {
   const [name, setName] = useState('');
   const [houseName, setHouseName] = useState('');
   const [imageFile, setImage] = useState<File | null>(null);
   const [category, setCategory] = useState('');
+  const [isLoading, setIsLoading] = useState(false)
 
   const { toast } = useToast();
 
@@ -23,7 +25,10 @@ const Parish = () => {
     }
 
     try {
+      setIsLoading(true)
       const response = await addParishMembers(formData);
+      setIsLoading(false)
+
       if (response) {
         toast({
           variant: 'primary',
@@ -102,12 +107,21 @@ const Parish = () => {
           </div>
         )}
         <div>
-          <button
+          {/* <button
             type="submit"
             className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
           >
             Submit
-          </button>
+          </button> */}
+          <LoadingButton
+            type="submit"
+            size="lg"
+            loading={isLoading}
+            className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
+          >
+            Submit
+          </LoadingButton>
+
         </div>
       </form>
     </div>

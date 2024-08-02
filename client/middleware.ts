@@ -22,5 +22,5 @@ export const middleware = async (req: NextRequest) => {
 };
 
 export const config = {
-  matcher: ["/admin/dashboard"],
+  matcher: ["/admin","/admin/dashboard" , "/admin/dashboard/events" ,"/admin/dashboard/upcoming-events","/admin/dashboard/prayer-requests" ,"/admin/dashboard/parish","/admin/dashboard/parish-members","/admin/dashboard/banner"],
 }
