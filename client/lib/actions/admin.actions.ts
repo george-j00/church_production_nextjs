@@ -213,3 +213,18 @@ const fetchParishMembers = async () => {
   );
   return res?.data?.memebersList;
 };
+
+export const addRegister = async (payload : any ) => {
+  try {
+    const response = await axios.post(`${baseUrl}/add-register`,payload);
+    console.log('response from the add registerrr',response);
+    return response
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      // const status = axiosError.response.status;
+      // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};

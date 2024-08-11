@@ -96,4 +96,20 @@ export const fetchParishMembers = async () => {
       }
     }
   };
+export const fetchRegisters = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/get-registers`);
+
+      console.log('register responseee' , response);
+      
+        return response?.data?.registers;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response) {
+        // const status = axiosError.response.status;
+        // return status
+        console.log("axios error ", axiosError);
+      }
+    }
+  };
 

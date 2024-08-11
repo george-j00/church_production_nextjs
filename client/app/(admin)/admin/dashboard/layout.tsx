@@ -77,6 +77,11 @@ export default function ProfileLayout({
                     Banner management
                   </ProfileNavLinks>
                 </li>
+                <li>
+                  <ProfileNavLinks href="/admin/dashboard/registers">
+                    Add register
+                  </ProfileNavLinks>
+                </li>
                 { token &&
                   <Logout />
                 }
