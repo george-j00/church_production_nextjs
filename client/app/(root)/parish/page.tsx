@@ -58,7 +58,7 @@ const ParishPage = () => {
     <>
       <div className="py-10 px-10">
         <h2 className="text-2xl font-bold mb-5">Important Registers</h2>
-        <div className="flex gap-5">
+        <div className="grid grid-cols-2 sm:flex sm:flex-row gap-5">
           {registers?.map(
             (register: { name: string; link: string }) => (
               <RegisterButton
