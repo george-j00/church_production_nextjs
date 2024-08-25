@@ -35,7 +35,7 @@ const ParishTeam = ({ people, otherData, isLoading }: ParishTeamsProps) => {
                 <li key={person.name}>
                   <div className="flex items-center gap-x-6">
                     <Image
-                      className="h-16 w-16 rounded-full"
+                      className="h-24 w-24 rounded-full"
                       src={person.image}
                       alt={`${person.name}'s picture`}
                       height={1000}

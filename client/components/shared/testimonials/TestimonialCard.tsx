@@ -10,7 +10,7 @@ const TestimonialCard = ({ testimonial }: any) => {
           <UserAvatar avatar={testimonial.image}/>
         </div>
         <div className="text-center mt-4">
-          <p className="text-center p-4">{testimonial.description}</p>
+          <p className="text-justify mb-5">{testimonial.description}</p>
           <p className="mb-12 font-bold text-indigo-600">- {testimonial.author}</p>
         </div>
       </Card>

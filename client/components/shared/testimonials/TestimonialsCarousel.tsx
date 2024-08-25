@@ -17,10 +17,10 @@ export function TestimonialCarousel() {
       author: "Metropolitan - H.G Yacob Mor Anthonious",
     },
     {
-      image:'/assets/endorsements/dummy_avatar.jpg',
+      image:'/assets/endorsements/vicar.jpeg',
       description:
         "Technology develops, the big world has been changed to a small one as the communication through medium strengthened, human relationship irrespective of space and time. By the grace of god Our church also step forward to centre of world of new communication methods through opening a website. I wish the intelligence along with innocent heart may lead our church members to a prosperous blessed future",
-      author: "Vicar - Rev. Fr. Eldhose George P",
+      author: "V. Rev. John Verghese Cor-Episcopa",
     },
   ];
 

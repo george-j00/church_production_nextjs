@@ -20,7 +20,7 @@ const ParishPage = () => {
       "The Parish Council is composed of diverse members from our congregation, each bringing unique perspectives and skills. They meet regularly to discuss and plan initiatives that foster spiritual growth, community engagement, and service to others.",
   }
   const eminentPersons = {
-    title: "Eminent personalities",
+    title: "Distinguished members",
     description:
       "Our church is privileged to be associated with several eminent personalities whose remarkable achievements extend far beyond our community.",
   }
