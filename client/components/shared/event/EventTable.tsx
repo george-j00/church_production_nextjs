@@ -27,6 +27,7 @@ export function EventTable() {
 
   if (error) return <p className="text-center text-xl mt-20 text-black-500">Failed to load events</p>;
   if (!events) return <p className="text-center text-xl mt-20 text-black-500">...loading</p>;
+  if (events.length <= 0 ) return <p className="text-center text-xl mt-20 text-black-500">No events</p>;
 
   return (
     <div className="md:flex">
