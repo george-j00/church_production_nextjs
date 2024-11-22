@@ -16,7 +16,7 @@ import Navbar from "../../shared/navbar/Navbar";
 const Header = () => {
   const carouselImages = [
     {
-      imageUrl: "/assets/carousel/carousel4.jpg",
+      imageUrl: "/assets/carousel/carousel5.jpg",
       quote: "With God, all things are possible",
       author: "Matthew 19:26",
     },
@@ -26,14 +26,19 @@ const Header = () => {
       author: "Matthew 17:20",
     },
     {
-      imageUrl: "/assets/carousel/carousel1.png",
+      imageUrl: "/assets/carousel/carousel1.jpg",
       quote: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
       author: "Jeremiah 29:11",
     },
     {
-      imageUrl: "/assets/carousel/carousel3.png",
+      imageUrl: "/assets/carousel/carousel3.jpg",
       quote: "Give all your worries and cares to God, for he cares about you"    ,                          
       author: "1 Peter 5:7",
+    },
+    {
+      imageUrl: "/assets/carousel/carousel5.jpg",
+      quote: "The Lord is my shepherd, I lack nothing.",
+      author: "Psalm 23:1",
     },
   ];
 
@@ -46,7 +51,7 @@ const Header = () => {
             {/* Map through images and dynamically change background */}
             {carouselImages?.map((banner, index) => (
               <CarouselItem key={index}>
-                <div className="relative ">
+                <div className="relative">
                   <div
                     className="bg-cover bg-center h-[100vh] relative"
                     style={{
@@ -56,8 +61,8 @@ const Header = () => {
                     }}
                   >
                     {/* Content inside each carousel item */}
-                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
-                      <h1 className="text-4xl font-extrabold text-white bg-black bg-opacity-50 p-5 md:text-6xl">
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-50 p-5">
+                      <h1 className="text-4xl font-extrabold text-white md:text-6xl">
                         {banner?.quote}
                         <br />
                         <span className="text-gray-100 text-2xl inline-block">
