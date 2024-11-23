@@ -5,7 +5,6 @@ import Head from "next/head"
 
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
-
 // const inter = Inter({ subsets: ["latin"] });
 const inter = Poppins({
   subsets: ["latin"],
