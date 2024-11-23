@@ -16,6 +16,16 @@ const inter = Poppins({
 export const metadata: Metadata = {
   title: "St.Antony's Jacobite Syrian Cathedral",
   description: "Website of St.Antony's Jacobite Syrian Cathedral",
+  openGraph: {
+    images: [
+      {
+        url: "/assets/carousel/2.jpg",
+        width: 800,
+        height: 600,
+        alt: "St.Antony's Jacobite Syrian Cathedral",
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
