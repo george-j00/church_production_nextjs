@@ -1,51 +1,51 @@
-"use client";
+"use client"
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
+import React, { useEffect, useState } from "react"
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { fetchAllBanners } from "@/lib/actions/user.actions";
-import Navbar from "../../shared/navbar/Navbar";
+} from "@/components/ui/carousel"
+import { fetchAllBanners } from "@/lib/actions/user.actions"
+import Navbar from "../../shared/navbar/Navbar"
 
 const Header = () => {
   const carouselImages = [
     {
-      imageUrl: "/assets/carousel/carousel5.jpg",
+      imageUrl: "/assets/carousel/carousel1.jpg",
       quote: "With God, all things are possible",
       author: "Matthew 19:26",
     },
     {
-      imageUrl: "/assets/carousel/carousel2.JPG",
+      imageUrl: "/assets/carousel/carousel2.jpg",
       quote: "Our faith can move mountains",
       author: "Matthew 17:20",
     },
     {
-      imageUrl: "/assets/carousel/carousel1.jpg",
-      quote: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
+      imageUrl: "/assets/carousel/carousel3.jpg",
+      quote:
+        "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
       author: "Jeremiah 29:11",
     },
     {
-      imageUrl: "/assets/carousel/carousel3.jpg",
-      quote: "Give all your worries and cares to God, for he cares about you"    ,                          
+      imageUrl: "/assets/carousel/carousel4.jpg",
+      quote: "Give all your worries and cares to God, for he cares about you",
       author: "1 Peter 5:7",
     },
     {
-      imageUrl: "/assets/carousel/carousel5.jpg",
+      imageUrl: "/assets/carousel/carousel1.jpg",
       quote: "The Lord is my shepherd, I lack nothing.",
       author: "Psalm 23:1",
     },
-  ];
+  ]
 
   return (
     <>
       <div className="relative">
-       
         <Carousel>
           <CarouselContent>
             {/* Map through images and dynamically change background */}
@@ -91,7 +91,7 @@ const Header = () => {
         </Carousel>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

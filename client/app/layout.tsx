@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
+import Head from "next/head";
 
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -24,7 +25,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Head>
+        <title>St.Antony's Jacobite Syrian Cathedral</title>
+        <meta name="description" content="Website of St.Antony's Jacobite Syrian Cathedral" />
+        <meta name="keywords" content="St.Antony, Jacobite, Syrian, Cathedral, Church" />
+      </Head>
+      <body className={inter.className}>
+        <header>
+        </header>
+        <main>{children}</main>
+        <footer>
+        </footer>
+      </body>
     </html>
   );
 }
