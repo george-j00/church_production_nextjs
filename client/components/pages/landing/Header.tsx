@@ -16,7 +16,7 @@ import Navbar from "../../shared/navbar/Navbar"
 const Header = () => {
   const carouselImages = [
     {
-      imageUrl: "/assets/carousel/carousel4.jpg",
+      imageUrl: "/assets/carousel/carousel1.jpg",
       quote: "With God, all things are possible",
       author: "Matthew 19:26",
     },
