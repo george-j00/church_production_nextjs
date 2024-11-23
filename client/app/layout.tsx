@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <title>St.Antony's Jacobite Syrian Cathedral</title>
+        <title>St.Antony&apos;s Jacobite Syrian Cathedral</title>
         <meta name="description" content="Website of St.Antony's Jacobite Syrian Cathedral" />
         <meta name="keywords" content="St.Antony, Jacobite, Syrian, Cathedral, Church" />
       </Head>
