@@ -13,17 +13,30 @@ const inter = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "St.Antony's Jacobite Syrian Cathedral",
-  description: "Website of St.Antony's Jacobite Syrian Cathedral",
+  title: "St.Antony's Jacobite Syrian Cathedral, Mangalore | Since 1937",
+  description: "St.Antony's Jacobite Syrian Cathedral in Mangalore, established in 1937, is a historic church dedicated to spiritual growth, community service, and faith. Join our vibrant community led by Rev. Fr. Eldhose.",
+  keywords: ["Jacobite Syrian Church", "Mangalore Church", "St Antony's Cathedral", "Christian Community Mangalore", "Syrian Orthodox Church"],
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://your-domain.com",
+    siteName: "St.Antony's Jacobite Syrian Cathedral",
+    title: "St.Antony's Jacobite Syrian Cathedral, Mangalore | Since 1937",
+    description: "Historic Jacobite Syrian Cathedral in Mangalore serving the community since 1937. Experience spiritual growth, community service, and rich Christian heritage.",
     images: [
       {
         url: "/assets/carousel/2.jpg",
         width: 800,
         height: 600,
-        alt: "St.Antony's Jacobite Syrian Cathedral",
+        alt: "St.Antony's Jacobite Syrian Cathedral, Mangalore",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "St.Antony's Jacobite Syrian Cathedral, Mangalore",
+    description: "Historic Jacobite Syrian Cathedral in Mangalore serving the community since 1937. Experience spiritual growth, community service, and rich Christian heritage.",
+    images: ["/assets/carousel/2.jpg"],
   },
 }
 

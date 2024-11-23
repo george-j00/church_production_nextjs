@@ -1,5 +1,5 @@
-import React from "react";
-import ContactDialog from "../../shared/contact/ContactDialog";
+import React from "react"
+import ContactDialog from "../../shared/contact/ContactDialog"
 
 const Contact = () => {
   return (
@@ -44,7 +44,7 @@ const Contact = () => {
                       </dd>
                     </div>
                   </div>
-                          <br />
+                  <br />
                   {/* Phone Number */}
                   <div className="flex items-center">
                     <div>
@@ -62,8 +62,21 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </>
-  );
-};
 
-export default Contact;
+      {/* Footer with Made with love text */}
+      <div className="text-center text-sm py-4 text-gray-400">
+        Made with{" "}
+        <span className="inline-block mx-1 text-red-800 animate-pulse">❤️</span>{" "}
+        by{" "}
+        <a
+          href="mailto:dev.georgejose@gmail.com"
+          className="text-primary-600 hover:text-primary-700"
+        >
+          George
+        </a>
+      </div>
+    </>
+  )
+}
+
+export default Contact

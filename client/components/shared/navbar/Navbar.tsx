@@ -10,7 +10,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav className="w-full bg-white shadow-md">
+    <nav className="w-full bg-white shadow-md z-10">
       <div className="mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo and Church Name */}
         <div className="flex items-center flex-1 md:flex-initial">

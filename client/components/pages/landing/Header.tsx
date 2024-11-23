@@ -45,7 +45,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="relative z-10">
+      <div className="relative">
         <Carousel>
           <CarouselContent>
             {carouselImages?.map((banner, index) => (
