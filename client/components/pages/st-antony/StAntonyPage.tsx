@@ -9,6 +9,8 @@ const StAntonyPage = () => {
             src="/assets/stantony1.jpg"
             alt="St. Antony"
             className="w-full h-full object-cover"
+            width={500}
+            height={500}
           />
         </div>
         <div className="flex-1 p-8">
