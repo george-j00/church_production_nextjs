@@ -21,12 +21,12 @@ const Header = () => {
       author: "Matthew 19:26",
     },
     {
-      imageUrl: "/assets/carousel/carousel4.jpg",
+      imageUrl: "/assets/carousel/carousel2.jpg",
       quote: "Our faith can move mountains",
       author: "Matthew 17:20",
     },
     {
-      imageUrl: "/assets/carousel/carousel4.jpg",
+      imageUrl: "/assets/carousel/carousel3.jpg",
       quote:
         "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
       author: "Jeremiah 29:11",
@@ -37,7 +37,7 @@ const Header = () => {
       author: "1 Peter 5:7",
     },
     {
-      imageUrl: "/assets/carousel/carousel4.jpg",
+      imageUrl: "/assets/carousel/carousel1.jpg",
       quote: "The Lord is my shepherd, I lack nothing.",
       author: "Psalm 23:1",
     },
@@ -48,38 +48,35 @@ const Header = () => {
       <div className="relative">
         <Carousel>
           <CarouselContent>
-            {/* Map through images and dynamically change background */}
             {carouselImages?.map((banner, index) => (
               <CarouselItem key={index}>
-                <div className="relative">
-                  <div
-                    className="bg-cover bg-center h-[100vh] relative"
-                    style={{
-                      backgroundImage: `url(${banner?.imageUrl})`,
-                      backgroundPositionY: "5%", // Move the image down by 5%
-                      transform: "translateY(-5%)", // Move the image down by 5%
-                    }}
-                  >
-                    {/* Content inside each carousel item */}
-                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-50 p-5">
-                      <h1 className="text-4xl font-extrabold text-white md:text-6xl">
-                        {banner?.quote}
-                        <br />
-                        <span className="text-gray-100 text-2xl inline-block">
-                          - {banner?.author}
-                        </span>
-                      </h1>
-                      <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 text-center">
-                        <p className="text-white text-1xl">
-                          Swipe down for more details
-                        </p>
-                        <Image
-                          src="/assets/swipe.gif"
-                          alt="Move down gif"
-                          width={40}
-                          height={40}
-                        />
-                      </div>
+                <div className="relative h-[100vh]">
+                  <Image
+                    src={banner.imageUrl}
+                    alt={`Carousel image ${index + 1}`}
+                    fill
+                    priority={index === 0}
+                    className="object-cover object-[center_5%]"
+                    quality={100}
+                  />
+                  <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-50 p-5 z-10">
+                    <h1 className="text-4xl font-extrabold text-white md:text-6xl">
+                      {banner?.quote}
+                      <br />
+                      <span className="text-gray-100 text-2xl inline-block">
+                        - {banner?.author}
+                      </span>
+                    </h1>
+                    <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 text-center">
+                      <p className="text-white text-1xl">
+                        Swipe down for more details
+                      </p>
+                      <Image
+                        src="/assets/swipe.gif"
+                        alt="Move down gif"
+                        width={40}
+                        height={40}
+                      />
                     </div>
                   </div>
                 </div>
