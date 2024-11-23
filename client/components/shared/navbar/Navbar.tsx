@@ -10,33 +10,36 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav>
-      <div className=" mx-auto px-4 py-5 flex justify-around items-center bg-transpar">
+    <nav className="w-full bg-white shadow-md">
+      <div className="mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo and Church Name */}
-        <div className="flex items-center">
+        <div className="flex items-center flex-1 md:flex-initial">
           {/* Church Logo */}
           <Image
             src="/assets/ChurchLogo.png"
             alt="Church logo"
-            width={70}
+            width={60}
             height={28}
+            className="flex-shrink-0"
           />
-          {/* Church Name */}
-          <div className="flex flex-col mt-3 ml-1 md:mr-5  text-black text-center w-[75%] md:w-[90%]">
-            <h1 className=" text-lg md:text-2xl font-extrabold">
+          <div className="text-center sm:ml-6 pr-5">
+            <h1 className="text-sm md:text-2xl font-extrabold text-black leading-tight">
               St.Antony&apos;s Jacobite Syrian Orthodox Cathedral
             </h1>
-            <p className="text-xs  md:text-sm  md:w-[85%] md:ml-[50px] text-black ">
+            <p className="text-[9px] md:text-sm text-gray-700 max-w-[500px] mx-auto">
               Under the Holy Apostolic See of Antioch and All the East & St
               Anthony&apos;s Educational Society Honnavar (Public Trust F-17
               Karwar Registered under Charitable Societies Act)
             </p>
           </div>
         </div>
+
         {/* Navigation Links */}
-        <ul className="hidden md:flex text-black font-extrabold space-x-8">
-        <li className="mt-1">
-            <Link href="/">Home</Link>
+        <ul className="hidden md:flex items-center text-black font-bold space-x-4 lg:space-x-6">
+          <li>
+            <Link href="/" className="hover:text-gray-500 transition-colors">
+              Home
+            </Link>
           </li>
           <li>
             <NavAbout />
@@ -44,26 +47,35 @@ const Navbar = () => {
           <li>
             <NavService />
           </li>
-          <li className="dropdown mt-1 hover:text-gray-400">
-            <Link href="/parish">Parish</Link>
+          <li>
+            <Link href="/parish" className="hover:text-gray-500 transition-colors">
+              Parish
+            </Link>
           </li>
-          <li className="dropdown mt-1 hover:text-gray-400">
-            <Link href="/relics">Relics</Link>
+          <li>
+            <Link href="/relics" className="hover:text-gray-500 transition-colors">
+              Relics
+            </Link>
           </li>
-          <li className="mt-1">
-            <Link href="/events">Events</Link>
+          <li>
+            <Link href="/events" className="hover:text-gray-500 transition-colors">
+              Events
+            </Link>
           </li>
-          <li
-            className="mt-1 cursor-pointer"
-            onClick={() => router.push("/#contactUs")}
-          >
-            Contact
+          <li>
+            <button
+              onClick={() => router.push("/#contactUs")}
+              className="hover:text-gray-500 transition-colors"
+            >
+              Contact
+            </button>
           </li>
         </ul>
-        {/* Hamburger Menu for Mobile */}
-        <button className="md:hidden focus:outline-none text-white hover:text-gray-400">
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
           <MobileNav />
-        </button>
+        </div>
       </div>
     </nav>
   );

@@ -45,7 +45,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative z-10">
         <Carousel>
           <CarouselContent>
             {carouselImages?.map((banner, index) => (
@@ -63,7 +63,7 @@ const Header = () => {
                     <h1 className="text-4xl font-extrabold text-white md:text-6xl">
                       {banner?.quote}
                       <br />
-                      <span className="text-gray-100 text-2xl inline-block">
+                      <span className="text-white text-2xl inline-block">
                         - {banner?.author}
                       </span>
                     </h1>
