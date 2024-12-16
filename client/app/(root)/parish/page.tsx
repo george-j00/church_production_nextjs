@@ -1,7 +1,6 @@
 "use client"
 
 import ParishTeam from "@/components/pages/core-team/ParishTeam"
-import ParishMembersListPage from "@/components/pages/parish-memeber/ParishMembers"
 import { fetchParishMembers, fetchRegisters } from "@/lib/actions/user.actions"
 import Link from "next/link"
 import React, { useState } from "react"
