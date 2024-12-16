@@ -1,10 +1,10 @@
-import Navbar from "@/components/shared/navbar/Navbar";
-import { Toaster } from "@/components/ui/toaster";
+import Navbar from "@/components/shared/navbar/Navbar"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <div className="flex flex-col">
@@ -12,5 +12,5 @@ export default function RootLayout({
       <main className="flex-1">{children}</main>
       <Toaster />
     </div>
-  );
+  )
 }
