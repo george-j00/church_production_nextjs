@@ -1,4 +1,3 @@
-import Header from "@/components/pages/landing/Header";
 import Navbar from "@/components/shared/navbar/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 
