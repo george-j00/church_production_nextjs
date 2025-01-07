@@ -10,7 +10,7 @@ const StAntonyPage = () => {
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/3">
               <Image
-                src="/assets/stantonyImage.png"
+                src="/assets/stantonypicture.jpg"
                 alt="St. Antony"
                 className="w-full h-full object-cover"
                 width={500}
