@@ -33,7 +33,7 @@ const StAntonyPage = () => {
               <div>
                 <h2 className="text-2xl font-bold mb-4">Early Life</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Born in Coma, Egypt, into a wealthy Christian family, Antony's life changed dramatically
+                  Born in Coma, Egypt, into a wealthy Christian family, Antony&apos;s life changed dramatically
                   after hearing the Gospel passage from Matthew 19:21. Inspired, he distributed his
                   inheritance to the poor and dedicated his life to God.
                 </p>
@@ -43,8 +43,8 @@ const StAntonyPage = () => {
                 <h2 className="text-2xl font-bold mb-4">Life in Solitude</h2>
                 <p className="text-gray-600 leading-relaxed">
                   At age 20, Antony retreated to the desert as a hermit. He spent years battling spiritual
-                  temptations, famously depicted in Christian art as "The Temptations of Saint Antony."
-                </p>
+                  temptations, famously depicted in Christian art as &quot;The Temptations of Saint Antony.&quot;
+                </p>  
               </div>
 
               <div>
@@ -52,14 +52,14 @@ const StAntonyPage = () => {
                 <p className="text-gray-600 leading-relaxed">
                   Though not the first hermit, Antony organized one of the first Christian monastic
                   communities in the Egyptian desert. His example inspired countless others to adopt
-                  the monastic life, earning him the title "Father of Monasticism."
+                  the monastic life, earning him the title &quot;Father of Monasticism.&quot;
                 </p>
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold mb-4">Legacy and Influence</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  St. Antony's life was documented by Saint Athanasius in "The Life of Antony," which
+                  St. Antony&apos;s life was documented by Saint Athanasius in &quot;The Life of Antony,&quot; which
                   helped spread monasticism across the Roman Empire. His spiritual struggles have been
                   depicted in numerous works of art by masters like Hieronymus Bosch and Salvador Dalí.
                   He is celebrated on January 17th in both Eastern Orthodox and Roman Catholic traditions.
