@@ -59,7 +59,7 @@ const Header = () => {
                     className="object-cover object-[center_5%]"
                     quality={100}
                   />
-                  <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-50 p-5 z-10">
+                  <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-5 z-10">
                     <h1 className="text-4xl font-extrabold text-white md:text-6xl">
                       {banner?.quote}
                       <br />
