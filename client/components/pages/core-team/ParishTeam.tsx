@@ -33,9 +33,9 @@ const ParishTeam = ({ people, otherData, isLoading }: ParishTeamsProps) => {
             ) : (
               people?.map((person) => (
                 <li key={person.name}>
-                  <div className="flex items-center gap-x-6">
+                  <div className="flex items-center gap-x-6 rounded-full">
                     <Image
-                      className="h-24 w-24 rounded-full"
+                      className="h-32 w-32 rounded-full"
                       src={person.image}
                       alt={`${person.name}'s picture`}
                       height={1000}
@@ -43,10 +43,13 @@ const ParishTeam = ({ people, otherData, isLoading }: ParishTeamsProps) => {
                     />
                     <div>
                       <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                        {person.name}
+                        {person?.name}
                       </h3>
                       <p className="text-sm font-semibold leading-6 text-indigo-600">
-                        {person.houseName}
+                        {person?.houseName}
+                      </p>
+                      <p className="text-sm font-semibold leading-6 text-indigo-600">
+                        {person?.phoneNumber}
                       </p>
                     </div>
                   </div>

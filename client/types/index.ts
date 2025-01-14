@@ -13,6 +13,7 @@ export type ParishTeamParams = {
     houseName:string;
     image:string;
     category:string;
+    phoneNumber?:string;
 }
 
 export type EventType = {

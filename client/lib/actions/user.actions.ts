@@ -1,5 +1,5 @@
-const baseUrl = "https://chuch-backend-nodejs.onrender.com/api/user";
-// const baseUrl = "http://localhost:3001/api/user";
+// const baseUrl = "https://chuch-backend-nodejs.onrender.com/api/user";
+const baseUrl = "http://localhost:3001/api/user";
 import axios, { AxiosError } from "axios";
 
  type PrayerRequestParams = {

@@ -1,6 +1,6 @@
 
-const baseUrl = "https://chuch-backend-nodejs.onrender.com/api/admin";
-// const baseUrl = "http://localhost:3001/api/admin";
+// const baseUrl = "https://chuch-backend-nodejs.onrender.com/api/admin";
+const baseUrl = "http://localhost:3001/api/admin";
 
 import { IEventFormData } from "@/components/admin/event-management/CreateEventDialogBox";
 import { EventParams } from "@/types";
@@ -224,6 +224,30 @@ export const addRegister = async (payload : any ) => {
     if (axiosError.response) {
       // const status = axiosError.response.status;
       // return status
+      console.log("axios error ", axiosError);
+    }
+  }
+};
+
+export const fetchAllRegisters = async () => {
+  try {
+    const res = await axios.get(`${baseUrl}/get-registers`);
+    return res?.data?.registers;
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      console.log("axios error ", axiosError);
+    }
+  }
+};
+
+export const deleteRegister = async (registerId: string) => {
+  try {
+    const res = await axios.delete(`${baseUrl}/delete-register/${registerId}`);
+    return res?.data?.message;
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
       console.log("axios error ", axiosError);
     }
   }

@@ -82,6 +82,11 @@ export default function ProfileLayout({
                     Add register
                   </ProfileNavLinks>
                 </li>
+                <li>
+                  <ProfileNavLinks href="/admin/dashboard/registers/register-management">
+                    Register Management
+                  </ProfileNavLinks>
+                </li>
                 { token &&
                   <Logout />
                 }

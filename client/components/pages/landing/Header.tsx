@@ -10,8 +10,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { fetchAllBanners } from "@/lib/actions/user.actions"
-import Navbar from "../../shared/navbar/Navbar"
 
 const Header = () => {
   const carouselImages = [
@@ -59,16 +57,24 @@ const Header = () => {
                     className="object-cover object-[center_5%]"
                     quality={100}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
+                  
                   <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-5 z-10">
-                    <h1 className="text-4xl font-extrabold text-white md:text-6xl">
-                      {banner?.quote}
-                      <br />
-                      <span className="text-white text-2xl inline-block">
-                        - {banner?.author}
-                      </span>
-                    </h1>
+                    <div className="max-w-4xl">
+                      <h1 className="text-4xl font-extrabold md:text-6xl">
+                        <span className="text-gray-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] leading-snug">
+                          "{banner?.quote}"
+                        </span>
+                        <div className="mt-6">
+                          <span className="text-white/90 text-2xl font-medium italic drop-shadow-[0_2px_3px_rgba(0,0,0,0.3)]">
+                            - {banner?.author}
+                          </span>
+                        </div>
+                      </h1>
+                    </div>
+                    
                     <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 text-center">
-                      <p className="text-white text-1xl">
+                      <p className="text-white/90 text-xl font-light drop-shadow-md">
                         Swipe down for more details
                       </p>
                       <Image
@@ -76,6 +82,7 @@ const Header = () => {
                         alt="Move down gif"
                         width={40}
                         height={40}
+                        className="opacity-80"
                       />
                     </div>
                   </div>
@@ -83,8 +90,8 @@ const Header = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute top-1/2 left-0 transform -translate-y-1/2 text-black z-20" />
-          <CarouselNext className="absolute top-1/2 right-0 transform -translate-y-1/2 text-black z-20" />
+          <CarouselPrevious className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white border-none shadow-lg backdrop-blur-sm z-20" />
+          <CarouselNext className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white border-none shadow-lg backdrop-blur-sm z-20" />
         </Carousel>
       </div>
     </>

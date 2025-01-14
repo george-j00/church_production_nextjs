@@ -17,6 +17,11 @@ const ParishPage = () => {
     description:
       "The Parish Council is composed of diverse members from our congregation, each bringing unique perspectives and skills. They meet regularly to discuss and plan initiatives that foster spiritual growth, community engagement, and service to others.",
   }
+  const parishCouncilMembers = {
+    title: "Parish Council Members",
+    description:
+      "The Parish Council is composed of diverse members from our congregation, each bringing unique perspectives and skills.",
+  }
   const eminentPersons = {
     title: "Distinguished members",
     description:
@@ -44,12 +49,15 @@ const ParishPage = () => {
   const spiritualLeadersList = parishMembers?.filter(
     (member: { category: string }) => member.category === "spiritual-leaders"
   )
-  const leadershipTeamList = parishMembers?.filter(
-    (member: { category: string }) => member.category === "parish-council"
-  )
+    const leadershipTeamList = parishMembers?.filter(
+      (member: { category: string }) => member.category === "parish-council"
+    )
   const eminentPersonsList = parishMembers?.filter(
     (member: { category: string }) =>
       member.category === "eminent-personalities"
+  )
+  const parishMembersList = parishMembers?.filter(
+    (member: { category: string }) => member.category === "parish-members"
   )
 
   return (
@@ -79,6 +87,11 @@ const ParishPage = () => {
           people={leadershipTeamList || []}
           otherData={leadershipTeam}
           isLoading={!leadershipTeamList && !error}
+        />
+        <ParishTeam
+          people={parishMembersList || []}
+          otherData={parishCouncilMembers}
+          isLoading={!parishMembersList && !error}
         />
         <ParishTeam
           people={eminentPersonsList || []}

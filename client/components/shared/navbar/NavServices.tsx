@@ -13,12 +13,12 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 const components: { title: string; href: string; description: string }[] = [
-  // {
-  //   title: "Evening Prayer",
-  //   href: "#", // Matches title in lowercase with hyphen
-  //   description:
-  //     "Join us for a time of reflection and prayer in the evening.",
-  // },
+  {
+    title: "Regular Services",
+    href: "/services/regular-services", // Matches title in lowercase with hyphen
+    description:
+      "Details of our regular services",
+  },
   // {
   //   title: "HOLY MASS",
   //   href: "#", // Matches title in lowercase with hyphen
