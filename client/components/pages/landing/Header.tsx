@@ -63,7 +63,7 @@ const Header = () => {
                     <div className="max-w-4xl">
                       <h1 className="text-4xl font-extrabold md:text-6xl">
                         <span className="text-gray-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] leading-snug">
-                          "{banner?.quote}"
+                          &quot;{banner?.quote}&quot;
                         </span>
                         <div className="mt-6">
                           <span className="text-white/90 text-2xl font-medium italic drop-shadow-[0_2px_3px_rgba(0,0,0,0.3)]">

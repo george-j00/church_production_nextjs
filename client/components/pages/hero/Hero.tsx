@@ -17,7 +17,7 @@ const Hero = () => {
               Vision and <span className=" text-indigo-600">Mission</span>
             </h2>
             <p className="text-gray-500 mb-5">
-              this part shows the vision and mission of the St.Anthony's
+              this part shows the vision and mission of the St.Anthony&apos;s
               church manglore{" "}
             </p>
           </div>

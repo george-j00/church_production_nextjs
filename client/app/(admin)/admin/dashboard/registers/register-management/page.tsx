@@ -54,84 +54,89 @@ import {
 } from "@/components/ui/alert-dialog"
 import { useToast } from "@/components/ui/use-toast"
 
-const getColumns = (data: any) => {
-  const { toast } = useToast()
-
-  const handleDeleteRegister = async (registerId: string) => {
-    const res = await deleteRegister(registerId)
-    if (res) {
-      toast({
-        variant: "destructive",
-        title: "Register deleted successfully",
-      })
-      setTimeout(() => {
-        window.location.reload()
-      }, 500)
-    }
-  }
-
-  const columns: ColumnDef<EventType>[] = [
-    {
-      accessorKey: "name",
-      header: "Name",
-      cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("name")}</div>
-      ),
-    },
-    {
-      id: "actions",
-      header: "Actions",
-      enableHiding: false,
-      cell: ({ row }) => {
-        const register = row.original
-
-        return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <DropdownMenuItem onSelect={(e) => e.preventDefault()} className="cursor-pointer text-red-500">
-                    Delete
-                  </DropdownMenuItem>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      This action cannot be undone. This will permanently delete the selected register.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction 
-                      className="text-white bg-red-500" 
-                      onClick={() => handleDeleteRegister(register._id)}
-                    >
-                      Continue
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )
-      },
-    },
-  ]
-  return columns
-}
-
 const RegisterList = () => {
   const [data, setRegisterData] = React.useState<any>([])
   const [isLoading, setIsLoading] = React.useState(false)
+  const { toast } = useToast()
+
+  const getColumns = (data: any) => {
+    const handleDeleteRegister = async (registerId: string) => {
+      const res = await deleteRegister(registerId)
+      if (res) {
+        toast({
+          variant: "destructive",
+          title: "Register deleted successfully",
+        })
+        setTimeout(() => {
+          window.location.reload()
+        }, 500)
+      }
+    }
+
+    const columns: ColumnDef<EventType>[] = [
+      {
+        accessorKey: "name",
+        header: "Name",
+        cell: ({ row }) => (
+          <div className="capitalize">{row.getValue("name")}</div>
+        ),
+      },
+      {
+        id: "actions",
+        header: "Actions",
+        enableHiding: false,
+        cell: ({ row }) => {
+          const register = row.original
+
+          return (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">Open menu</span>
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <DropdownMenuItem
+                      onSelect={(e) => e.preventDefault()}
+                      className="cursor-pointer text-red-500"
+                    >
+                      Delete
+                    </DropdownMenuItem>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>
+                        Are you absolutely sure?
+                      </AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This action cannot be undone. This will permanently
+                        delete the selected register.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction
+                        className="text-white bg-red-500"
+                        onClick={() => handleDeleteRegister(register._id)}
+                      >
+                        Continue
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )
+        },
+      },
+    ]
+    return columns
+  }
 
   useEffect(() => {
     const fetchRegisters = async () => {
@@ -212,10 +217,19 @@ const RegisterList = () => {
             ))}
           </TableHeader>
           <TableBody className="bg-black">
-            {table.getRowModel().rows?.length ? (
+            {isLoading ? (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center text-white"
+                >
+                  <p>Loading Members list ...</p>
+                </TableCell>
+              </TableRow>
+            ) : table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
-                  className="hover:text-black text-white "
+                  className="hover:text-black text-white"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
@@ -233,13 +247,9 @@ const RegisterList = () => {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center"
+                  className="h-24 text-center text-white"
                 >
-                  {isLoading ? (
-                    <p>Loading Members list ...</p>
-                  ) : (
-                    <p>No results.</p>
-                  )}
+                  <p>No results.</p>
                 </TableCell>
               </TableRow>
             )}
@@ -248,23 +258,23 @@ const RegisterList = () => {
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          {table?.getFilteredSelectedRowModel()?.rows?.length} of{" "}
+          {table?.getFilteredRowModel()?.rows?.length} row(s) selected.
         </div>
         <div className="space-x-2">
           <Button
             className="text-white"
             size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
+            onClick={() => table?.previousPage()}
+            disabled={!table?.getCanPreviousPage()}
           >
             Previous
           </Button>
           <Button
             className="text-white"
             size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
+            onClick={() => table?.nextPage()}
+            disabled={!table?.getCanNextPage()}
           >
             Next
           </Button>
