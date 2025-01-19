@@ -34,8 +34,8 @@ const AboutUs = () => {
             resilient under the guidance of dedicated leaders like Rev. Jacob
             Kuriakal and Rev. Thomas Abraham. Over the years, it has hosted
             esteemed religious figures and continued its mission of spiritual
-            growth and community engagement. Today, led by Rev. Fr. Eldhose and
-            supported by committed members, the church remains committed to its
+            growth and community engagement. Today, led by Vicar, Secretary,
+            Trustee and the blessings of our Church, the church remains committed to its
             founding principles of love, compassion, and service. With a renewed
             focus on outreach and spiritual enrichment, it continues to be a
             source of hope and inspiration for all who seek its shelter. As we

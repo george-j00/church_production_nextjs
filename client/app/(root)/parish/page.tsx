@@ -107,7 +107,7 @@ const RegisterButton = ({ href, label }: { href: string; label: string }) => {
   return (
     <Link
       href={href}
-      className="w-48 h-12 flex items-center justify-center bg-primary text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
+      className="min-w-[12rem] w-auto px-6 h-12 flex items-center justify-center bg-primary text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out whitespace-nowrap overflow-hidden text-ellipsis"
       target="_blank"
       rel="noopener noreferrer"
     >
