@@ -61,45 +61,47 @@ const ParishPage = () => {
   )
 
   return (
-    <>
-      <div className="py-10 px-10">
-        <h2 className="text-2xl font-bold mb-5">Important Registers</h2>
-        <div className="grid grid-cols-2 sm:flex sm:flex-row gap-5">
-          {registers?.map(
-            (register: { name: string; link: string }) => (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        {/* Registers Section */}
+        <div className="bg-white rounded-2xl shadow-sm p-8 mb-10">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Important Registers</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {registers?.map((register: { name: string; link: string }) => (
               <RegisterButton
                 key={register.name}
                 href={register.link}
                 label={register.name}
               />
-            )
-          )}
+            ))}
+          </div>
+        </div>
+
+        {/* Teams Section */}
+        <div className="space-y-12">
+          <ParishTeam
+            people={spiritualLeadersList || []}
+            otherData={spiritualLeaders}
+            isLoading={!spiritualLeadersList && !error}
+          />
+          <ParishTeam
+            people={leadershipTeamList || []}
+            otherData={leadershipTeam}
+            isLoading={!leadershipTeamList && !error}
+          />
+          <ParishTeam
+            people={parishMembersList || []}
+            otherData={parishCouncilMembers}
+            isLoading={!parishMembersList && !error}
+          />
+          <ParishTeam
+            people={eminentPersonsList || []}
+            otherData={eminentPersons}
+            isLoading={!eminentPersonsList && !error}
+          />
         </div>
       </div>
-      <div className="flex flex-col gap-10">
-        {/* Static Content, visible while dynamic data loads */}
-        <ParishTeam
-          people={spiritualLeadersList || []}
-          otherData={spiritualLeaders}
-          isLoading={!spiritualLeadersList && !error}
-        />
-        <ParishTeam
-          people={leadershipTeamList || []}
-          otherData={leadershipTeam}
-          isLoading={!leadershipTeamList && !error}
-        />
-        <ParishTeam
-          people={parishMembersList || []}
-          otherData={parishCouncilMembers}
-          isLoading={!parishMembersList && !error}
-        />
-        <ParishTeam
-          people={eminentPersonsList || []}
-          otherData={eminentPersons}
-          isLoading={!eminentPersonsList && !error}
-        />
-      </div>
-    </>
+    </div>
   )
 }
 
@@ -107,7 +109,7 @@ const RegisterButton = ({ href, label }: { href: string; label: string }) => {
   return (
     <Link
       href={href}
-      className="min-w-[12rem] w-auto px-6 h-12 flex items-center justify-center bg-primary text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out whitespace-nowrap overflow-hidden text-ellipsis"
+      className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl shadow-md hover:from-blue-700 hover:to-blue-800 transition duration-300 ease-in-out text-sm font-medium"
       target="_blank"
       rel="noopener noreferrer"
     >
