@@ -98,6 +98,7 @@ const ParishPage = () => {
             people={eminentPersonsList || []}
             otherData={eminentPersons}
             isLoading={!eminentPersonsList && !error}
+            type="eminent-personalities"
           />
         </div>
       </div>

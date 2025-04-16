@@ -14,14 +14,15 @@ import useSWR from "swr"
 
 const fetcher = async () => {
   const data = await fetchAllEvents("Upcoming")
-  console.log("upcoming events", data)
-
-  return data?.map((event: { eventDate: string | number | Date }) => {
+  
+  const events =  data?.map((event: { eventDate: string | number | Date }) => {
     // Convert eventDate to Date object
     const formattedDate = new Date(event.eventDate).toLocaleDateString()
     // Replace the original eventDate with the formattedDate
     return { ...event, eventDate: formattedDate }
   })
+
+  return events.reverse()
 }
 
 export function EventTable() {
