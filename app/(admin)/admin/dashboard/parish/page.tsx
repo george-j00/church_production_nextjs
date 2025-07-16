@@ -64,6 +64,7 @@ const Parish = () => {
             <option value="parish-council">Parish Council</option>
             <option value="parish-members">Parish Members</option>
             <option value="eminent-personalities">Eminent Personalities</option>
+            <option value="special-invitee">Special Invitee</option>
           </select>
         </div>
         <div>

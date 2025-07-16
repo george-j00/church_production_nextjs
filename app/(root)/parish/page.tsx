@@ -27,6 +27,11 @@ const ParishPage = () => {
     description:
       "Our church is privileged to be associated with several eminent personalities whose remarkable achievements extend far beyond our community.",
   }
+  const specialInvitees = {
+    title: "Special Invitees",
+    description:
+      "Our church is privileged to be associated with several special invitees whose remarkable achievements extend far beyond our community.",
+  }
 
   // SWR fetcher function
   const fetcher = async () => {
@@ -58,6 +63,10 @@ const ParishPage = () => {
   )
   const parishMembersList = parishMembers?.filter(
     (member: { category: string }) => member.category === "parish-members"
+  )
+
+  const specialInviteesList = parishMembers?.filter(
+    (member: { category: string }) => member.category === "special-invitee"
   )
 
   return (
@@ -99,6 +108,11 @@ const ParishPage = () => {
             otherData={eminentPersons}
             isLoading={!eminentPersonsList && !error}
             type="eminent-personalities"
+          />
+           <ParishTeam
+            people={specialInviteesList || []}
+            otherData={specialInvitees}
+            isLoading={!specialInviteesList && !error}
           />
         </div>
       </div>
