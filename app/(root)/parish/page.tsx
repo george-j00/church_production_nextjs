@@ -93,6 +93,11 @@ const ParishPage = () => {
             otherData={spiritualLeaders}
             isLoading={!spiritualLeadersList && !error}
           />
+           <ParishTeam
+            people={specialInviteesList || []}
+            otherData={specialInvitees}
+            isLoading={!specialInviteesList && !error}
+          />
           <ParishTeam
             people={leadershipTeamList || []}
             otherData={leadershipTeam}
@@ -108,11 +113,6 @@ const ParishPage = () => {
             otherData={eminentPersons}
             isLoading={!eminentPersonsList && !error}
             type="eminent-personalities"
-          />
-           <ParishTeam
-            people={specialInviteesList || []}
-            otherData={specialInvitees}
-            isLoading={!specialInviteesList && !error}
           />
         </div>
       </div>
